@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             if (checkedIds.contains(R.id.chipEnglish)) cats.add(QuestionGenerator.Category.ENGLISH)
             if (checkedIds.contains(R.id.chipPython)) cats.add(QuestionGenerator.Category.PYTHON)
             if (checkedIds.contains(R.id.chipCuriosidades)) cats.add(QuestionGenerator.Category.CURIOSIDADES)
+            if (checkedIds.contains(R.id.chipPeriodicTable)) cats.add(QuestionGenerator.Category.PERIODIC_TABLE)
             if (cats.isEmpty()) {
                 binding.chipMath.isChecked = true
                 cats.add(QuestionGenerator.Category.MATH)
@@ -120,6 +121,7 @@ class MainActivity : AppCompatActivity() {
         binding.chipEnglish.isChecked = QuestionGenerator.Category.ENGLISH in cats
         binding.chipPython.isChecked = QuestionGenerator.Category.PYTHON in cats
         binding.chipCuriosidades.isChecked = QuestionGenerator.Category.CURIOSIDADES in cats
+        binding.chipPeriodicTable.isChecked = QuestionGenerator.Category.PERIODIC_TABLE in cats
 
         updateBlockedCount()
         updateProgress()
@@ -162,7 +164,8 @@ class MainActivity : AppCompatActivity() {
             binding.chipMath,
             binding.chipEnglish,
             binding.chipPython,
-            binding.chipCuriosidades
+            binding.chipCuriosidades,
+            binding.chipPeriodicTable
         ).forEach { it.applyPressFeedback() }
     }
 

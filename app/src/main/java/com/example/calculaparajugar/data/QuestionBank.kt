@@ -6,7 +6,7 @@ import org.json.JSONObject
 
 /**
  * Banco de preguntas cargado desde assets/questions/.
- * 800 preguntas organizadas por materia, lección y dificultad.
+ * Preguntas organizadas por materia, lección y dificultad.
  *
  * Estructura JSON por pregunta:
  * {
@@ -55,7 +55,8 @@ object QuestionBank {
             "questions_math.json",
             "questions_english.json",
             "questions_python.json",
-            "questions_curiosidades.json"
+            "questions_curiosidades.json",
+            "questions_periodic_table.json"
         )
 
         for (file in files) {

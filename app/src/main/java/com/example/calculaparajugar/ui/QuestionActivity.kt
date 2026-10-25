@@ -343,6 +343,7 @@ class QuestionActivity : AppCompatActivity() {
         QuestionGenerator.Category.ENGLISH -> "Inglés"
         QuestionGenerator.Category.PYTHON -> "Python"
         QuestionGenerator.Category.CURIOSIDADES -> "Curiosidades"
+        QuestionGenerator.Category.PERIODIC_TABLE -> "Tabla periódica"
     }
 
     private fun getLessonForCategory(cat: QuestionGenerator.Category): Int {
@@ -355,6 +356,7 @@ class QuestionActivity : AppCompatActivity() {
         QuestionGenerator.Category.ENGLISH -> R.drawable.ic_cat_english
         QuestionGenerator.Category.PYTHON -> R.drawable.ic_cat_python
         QuestionGenerator.Category.CURIOSIDADES -> R.drawable.ic_cat_curiosidades
+        QuestionGenerator.Category.PERIODIC_TABLE -> R.drawable.ic_ui_book
     }
 
     override fun onPause() {
