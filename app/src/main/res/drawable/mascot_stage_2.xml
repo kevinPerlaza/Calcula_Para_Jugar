@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neuri Stage 2: Despierto -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Cuerpo -->
+    <path
+        android:pathData="M50,22 C67,22 80,37 80,55 C80,73 67,84 50,84 C33,84 20,73 20,55 C20,37 33,22 50,22Z"
+        android:fillColor="#A8D8EA" />
+    <!-- Brillo -->
+    <path
+        android:pathData="M35,35 C37,32 41,33 42,38 C40,37 36,36 35,35Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.3" />
+    <!-- Ojo izquierdo -->
+    <path
+        android:pathData="M40,45 A5,5 0 1,1 40,55 A5,5 0 1,1 40,45Z"
+        android:fillColor="#2D4A5E" />
+    <path
+        android:pathData="M42,46 A2,2 0 1,1 42,50 A2,2 0 1,1 42,46Z"
+        android:fillColor="#FFFFFF" />
+    <!-- Ojo derecho -->
+    <path
+        android:pathData="M60,45 A5,5 0 1,1 60,55 A5,5 0 1,1 60,45Z"
+        android:fillColor="#2D4A5E" />
+    <path
+        android:pathData="M62,46 A2,2 0 1,1 62,50 A2,2 0 1,1 62,46Z"
+        android:fillColor="#FFFFFF" />
+    <!-- Sonrisa -->
+    <path
+        android:pathData="M42,62 Q50,70 58,62"
+        android:strokeColor="#2D4A5E"
+        android:strokeWidth="2"
+        android:fillColor="#00000000" />
+    <!-- Mejillas -->
+    <path
+        android:pathData="M32,54 A4,4 0 1,1 32,62 A4,4 0 1,1 32,54Z"
+        android:fillColor="#FFB7B7"
+        android:fillAlpha="0.4" />
+    <path
+        android:pathData="M68,54 A4,4 0 1,1 68,62 A4,4 0 1,1 68,54Z"
+        android:fillColor="#FFB7B7"
+        android:fillAlpha="0.4" />
+</vector>

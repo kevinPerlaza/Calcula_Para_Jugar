@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BrainWall Liquid Glass Theme - Pastel Accents -->
+    <color name="background_dark">#FF0B1020</color>
+    <color name="card_dark">#D9162035</color>
+    <color name="card_stroke_dark">#596F86A8</color>
+
+    <!-- Accent: friendly sky + mint, softer for learning UI -->
+    <color name="primary">#FFC4B5FD</color>
+    <color name="primary_dark">#FF8B7CF6</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFF8FAFF</color>
+    <color name="text_secondary">#FFB8C2D8</color>
+    <color name="text_hint">#FF8390AA</color>
+
+    <!-- Feedback (pasteles) -->
+    <color name="correct_green">#FF86EFAC</color>
+    <color name="incorrect_red">#FFFCA5A5</color>
+    <color name="warning_amber">#FFF8D384</color>
+
+    <!-- Mascota stages -->
+    <color name="mascot_glow_3">#FFFDBA74</color>
+    <color name="black">#FF000000</color>
+</resources>

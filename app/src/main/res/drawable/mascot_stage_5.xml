@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neuri Stage 5: Sabio - corona de luz, estrellas -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Aura -->
+    <path
+        android:pathData="M50,10 A42,42 0 1,1 50,94 A42,42 0 1,1 50,10Z"
+        android:fillColor="#5EEAD4"
+        android:fillAlpha="0.08" />
+    <!-- Corona de luz -->
+    <path
+        android:pathData="M35,18 L38,12 L41,18 M47,14 L50,7 L53,14 M59,18 L62,12 L65,18"
+        android:strokeColor="#BAE6FD"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <!-- Cuerpo -->
+    <path
+        android:pathData="M50,22 C71,22 86,40 86,58 C86,76 71,90 50,90 C29,90 14,76 14,58 C14,40 29,22 50,22Z"
+        android:fillColor="#5BB8D4" />
+    <!-- Patrón cerebral -->
+    <path
+        android:pathData="M35,45 Q42,40 50,45 Q58,50 65,45"
+        android:strokeColor="#4AA0BC"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M30,55 Q38,50 46,55 Q54,60 62,55"
+        android:strokeColor="#4AA0BC"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <!-- Ojos con estrella -->
+    <path
+        android:pathData="M40,49 A7,7 0 1,1 40,63 A7,7 0 1,1 40,49Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M40,51 A5,5 0 1,1 40,61 A5,5 0 1,1 40,51Z"
+        android:fillColor="#1A3040" />
+    <path
+        android:pathData="M40,53 L41,55 L43,55 L41.5,56.5 L42,58.5 L40,57 L38,58.5 L38.5,56.5 L37,55 L39,55Z"
+        android:fillColor="#FDBA74" />
+    <path
+        android:pathData="M60,49 A7,7 0 1,1 60,63 A7,7 0 1,1 60,49Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M60,51 A5,5 0 1,1 60,61 A5,5 0 1,1 60,51Z"
+        android:fillColor="#1A3040" />
+    <path
+        android:pathData="M60,53 L61,55 L63,55 L61.5,56.5 L62,58.5 L60,57 L58,58.5 L58.5,56.5 L57,55 L59,55Z"
+        android:fillColor="#FDBA74" />
+    <!-- Sonrisa -->
+    <path
+        android:pathData="M42,72 Q50,79 58,72"
+        android:strokeColor="#1A3040"
+        android:strokeWidth="2.5"
+        android:fillColor="#00000000" />
+</vector>

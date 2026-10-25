@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000"
+    android:paddingHorizontal="38dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lessonSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="36dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="620dp"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_lesson_modal"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingHorizontal="30dp"
+                android:paddingTop="34dp"
+                android:paddingBottom="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="22dp"
+                    android:background="@drawable/bg_lesson_badge"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:text="LECCIÓN"
+                    android:textColor="#D7E0F4"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLessonTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="22dp"
+                    android:gravity="start"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3dp"
+                    android:text="MCM (Mínimo Común Múltiplo)"
+                    android:textColor="@color/text_primary"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLessonExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="22dp"
+                    android:gravity="start"
+                    android:lineSpacingExtra="5dp"
+                    android:text="El MCM es el menor número que es múltiplo de dos números a la vez."
+                    android:textColor="@color/text_primary"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:id="@+id/tvLessonExample"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Ejemplo:\nMCM(4,6):\nmúltiplos de 4: 4,8,12...\nmúltiplos de 6: 6,12...\n→ MCM=12"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUnderstood"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_lesson_button"
+                    android:text="ENTENDIDO"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="32dp"
+                    app:icon="@drawable/ic_ui_check"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
+                    app:iconTint="@color/text_primary" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

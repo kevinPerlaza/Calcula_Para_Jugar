@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mesh gradient oscuro con toques de color para que el blur tenga algo que difuminar -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base negra -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FF0B1020" />
+        </shape>
+    </item>
+    <!-- Halo violeta superior derecho -->
+    <item android:top="-100dp" android:right="-60dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="250dp"
+                android:centerX="0.7"
+                android:centerY="0.2"
+                android:startColor="#287C6CFF"
+                android:endColor="#00000000" />
+            <size android:width="400dp" android:height="400dp" />
+        </shape>
+    </item>
+    <!-- Halo turquesa inferior izquierdo -->
+    <item android:bottom="-80dp" android:left="-60dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="230dp"
+                android:centerX="0.3"
+                android:centerY="0.8"
+                android:startColor="#1A22D3C5"
+                android:endColor="#00000000" />
+            <size android:width="350dp" android:height="350dp" />
+        </shape>
+    </item>
+    <!-- Luz ambiental central -->
+    <item android:top="200dp" android:left="40dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="180dp"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:startColor="#106A7CF6"
+                android:endColor="#00000000" />
+            <size android:width="300dp" android:height="300dp" />
+        </shape>
+    </item>
+</layer-list>

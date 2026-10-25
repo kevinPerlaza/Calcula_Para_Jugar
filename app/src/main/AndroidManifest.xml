@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permiso para dibujar sobre otras apps -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Permiso para leer estadísticas de uso -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <!-- Servicio en primer plano -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- La tabla periódica incluida usa estilos locales y fuentes web opcionales. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Visibilidad limitada: solo apps que el usuario puede abrir desde el lanzador. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".CalculaParaJugarApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CalculaParaJugar">
+
+        <!-- Activity principal: panel del padre -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Selector de apps -->
+        <activity
+            android:name=".ui.AppSelectorActivity"
+            android:windowSoftInputMode="adjustNothing"
+            android:theme="@style/Theme.CalculaParaJugar" />
+
+        <!-- Celebración de level up -->
+        <activity
+            android:name=".ui.LevelUpActivity"
+            android:theme="@style/Theme.CalculaParaJugar" />
+
+        <!-- Evaluación de nivel -->
+        <activity
+            android:name=".ui.LevelTestActivity"
+            android:theme="@style/Theme.CalculaParaJugar" />
+
+        <!-- Ajustes -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:theme="@style/Theme.CalculaParaJugar" />
+
+        <!-- Explorador de los 118 elementos -->
+        <activity
+            android:name=".ui.PeriodicTableActivity"
+            android:theme="@style/Theme.CalculaParaJugar" />
+
+        <!-- Pregunta matemática (se muestra sobre la app bloqueada) -->
+        <activity
+            android:name=".ui.QuestionActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="adjustResize"
+            android:taskAffinity=""
+            android:theme="@style/Theme.CalculaParaJugar.Overlay" />
+
+        <!-- Lección educativa (se muestra sobre la app bloqueada) -->
+        <activity
+            android:name=".ui.LessonActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@style/Theme.CalculaParaJugar.Overlay" />
+
+        <!-- Servicio de monitoreo -->
+        <service
+            android:name=".service.MonitorService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Monitorea localmente la app en uso para mostrar ejercicios educativos configurados por el usuario." />
+        </service>
+
+    </application>
+
+</manifest>

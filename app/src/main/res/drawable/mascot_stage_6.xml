@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neuri Stage 6: Maestro - alas de energía, corona -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Aura fuerte -->
+    <path
+        android:pathData="M50,4 A46,46 0 1,1 50,96 A46,46 0 1,1 50,4Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.1" />
+    <!-- Ala izquierda -->
+    <path
+        android:pathData="M18,50 Q8,40 15,30 Q20,38 22,46Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.5" />
+    <path
+        android:pathData="M16,55 Q6,46 12,35 Q18,44 18,52Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.3" />
+    <!-- Ala derecha -->
+    <path
+        android:pathData="M82,50 Q92,40 85,30 Q80,38 78,46Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.5" />
+    <path
+        android:pathData="M84,55 Q94,46 88,35 Q82,44 82,52Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.3" />
+    <!-- Corona -->
+    <path
+        android:pathData="M36,22 L40,14 L44,20 L48,12 L52,20 L56,14 L60,20 L64,14 L64,24Z"
+        android:fillColor="#5EEAD4"
+        android:fillAlpha="0.8" />
+    <!-- Cuerpo -->
+    <path
+        android:pathData="M50,26 C70,26 84,42 84,60 C84,78 70,90 50,90 C30,90 16,78 16,60 C16,42 30,26 50,26Z"
+        android:fillColor="#3DACC8" />
+    <!-- Patrón -->
+    <path
+        android:pathData="M30,50 Q40,44 50,50 Q60,56 70,50"
+        android:strokeColor="#2E96B0"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <!-- Ojos poderosos -->
+    <path
+        android:pathData="M40,47 A8,8 0 1,1 40,63 A8,8 0 1,1 40,47Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M40,49 A6,6 0 1,1 40,61 A6,6 0 1,1 40,49Z"
+        android:fillColor="#1A3040" />
+    <path
+        android:pathData="M42,50.5 A2.5,2.5 0 1,1 42,55.5 A2.5,2.5 0 1,1 42,50.5Z"
+        android:fillColor="#BAE6FD" />
+    <path
+        android:pathData="M60,47 A8,8 0 1,1 60,63 A8,8 0 1,1 60,47Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M60,49 A6,6 0 1,1 60,61 A6,6 0 1,1 60,49Z"
+        android:fillColor="#1A3040" />
+    <path
+        android:pathData="M62,50.5 A2.5,2.5 0 1,1 62,55.5 A2.5,2.5 0 1,1 62,50.5Z"
+        android:fillColor="#BAE6FD" />
+    <!-- Sonrisa -->
+    <path
+        android:pathData="M40,72 Q50,80 60,72"
+        android:strokeColor="#1A3040"
+        android:strokeWidth="2.5"
+        android:fillColor="#00000000" />
+</vector>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neuri Stage 4: Estudioso - 2.5D cyber buddy -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <path
+        android:pathData="M31,88 C39,95 63,95 71,88 C62,84 40,84 31,88Z"
+        android:fillColor="#061426"
+        android:fillAlpha="0.35" />
+
+    <path
+        android:pathData="M22,44 C12,47 9,58 17,66 C22,70 28,66 29,59 C30,51 28,45 22,44Z"
+        android:fillColor="#35D8E8" />
+    <path
+        android:pathData="M78,44 C88,47 91,58 83,66 C78,70 72,66 71,59 C70,51 72,45 78,44Z"
+        android:fillColor="#1DA8D1" />
+
+    <path
+        android:pathData="M50,29 C70,29 84,43 84,61 C84,79 70,90 50,90 C30,90 16,79 16,61 C16,43 30,29 50,29Z"
+        android:fillColor="#48E1EF" />
+    <path
+        android:pathData="M56,31 C73,34 84,47 84,62 C84,79 70,90 50,90 C42,90 35,88 29,84 C51,85 67,72 67,54 C67,43 63,36 56,31Z"
+        android:fillColor="#188AB6"
+        android:fillAlpha="0.55" />
+    <path
+        android:pathData="M27,47 C31,36 44,31 58,33 C43,35 33,42 29,55 C27,61 27,68 29,74 C19,67 21,54 27,47Z"
+        android:fillColor="#B9FFFF"
+        android:fillAlpha="0.35" />
+
+    <path
+        android:pathData="M30,49 C34,42 43,39 53,40 C65,41 74,48 76,59 C73,50 64,45 52,44 C43,43 35,45 30,49Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.22" />
+
+    <path
+        android:pathData="M50,41 C62,41 72,50 72,62 C72,74 62,82 50,82 C38,82 28,74 28,62 C28,50 38,41 50,41Z"
+        android:fillColor="#A5F6FF"
+        android:fillAlpha="0.62" />
+    <path
+        android:pathData="M56,43 C66,45 72,53 72,63 C72,75 62,82 50,82 C45,82 40,81 36,78 C50,78 60,70 60,58 C60,51 59,47 56,43Z"
+        android:fillColor="#5DBFD3"
+        android:fillAlpha="0.52" />
+
+    <path
+        android:pathData="M34,30 L50,20 L66,30 L50,39Z"
+        android:fillColor="#163651" />
+    <path
+        android:pathData="M24,34 L50,23 L76,34 L50,45Z"
+        android:fillColor="#0B2840" />
+    <path
+        android:pathData="M29,34 L50,26 L70,34 L50,41Z"
+        android:fillColor="#285F78"
+        android:fillAlpha="0.9" />
+    <path
+        android:pathData="M50,23 L50,13"
+        android:strokeColor="#65FAF0"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M50,9 A4,4 0,1 1,50 17 A4,4 0,1 1,50 9"
+        android:fillColor="#71FFF8" />
+
+    <path
+        android:pathData="M40,55 A6.5,6.5 0,1 1,40 68 A6.5,6.5 0,1 1,40 55"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M40,57 A4.8,4.8 0,1 1,40 66.6 A4.8,4.8 0,1 1,40 57"
+        android:fillColor="#142A3C" />
+    <path
+        android:pathData="M43,57.5 A2,2 0,1 1,43 61.5 A2,2 0,1 1,43 57.5"
+        android:fillColor="#FFFFFF" />
+
+    <path
+        android:pathData="M60,55 A6.5,6.5 0,1 1,60 68 A6.5,6.5 0,1 1,60 55"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M60,57 A4.8,4.8 0,1 1,60 66.6 A4.8,4.8 0,1 1,60 57"
+        android:fillColor="#142A3C" />
+    <path
+        android:pathData="M63,57.5 A2,2 0,1 1,63 61.5 A2,2 0,1 1,63 57.5"
+        android:fillColor="#FFFFFF" />
+
+    <path
+        android:pathData="M43,73 Q50,79 57,73"
+        android:strokeColor="#10283B"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <path
+        android:pathData="M74,38 C79,34 84,35 87,40"
+        android:strokeColor="#5EF8FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M26,38 C21,34 16,35 13,40"
+        android:strokeColor="#7BFCFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+</vector>

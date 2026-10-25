@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_liquid_root">
+
+    <!-- Particles background -->
+    <TextView
+        android:id="@+id/tvParticles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="•  •  •  •  •"
+        android:textSize="24sp"
+        android:alpha="0.4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subiste de nivel"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Mascota grande -->
+        <ImageView
+            android:id="@+id/imgMascot"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/mascot_stage_1"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Neuri" />
+
+        <!-- Nivel -->
+        <TextView
+            android:id="@+id/tvLevelNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nivel 7"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Nombre mascota -->
+        <TextView
+            android:id="@+id/tvMascotName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Búho Joven"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tvMascotDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empieza a mostrar sabiduría"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Evolución -->
+        <TextView
+            android:id="@+id/tvEvolved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Evolucionó"
+            android:textColor="@color/mascot_glow_3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Botón -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnContinue"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:text="Continuar"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_glass_button"
+            app:backgroundTint="@null"
+            app:cornerRadius="14dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

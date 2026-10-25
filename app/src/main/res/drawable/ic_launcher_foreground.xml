@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BrainWall Logo: cerebro estilizado con muro/escudo -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Fondo circular oscuro -->
+    <path
+        android:pathData="M54,54m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"
+        android:fillColor="#0D1220" />
+
+    <!-- Escudo/muro exterior -->
+    <path
+        android:pathData="M54,24 C68,24 78,30 82,38 L82,62 C82,74 70,82 54,84 C38,82 26,74 26,62 L26,38 C30,30 40,24 54,24Z"
+        android:fillColor="#13212B"
+        android:strokeColor="#7DD3FC"
+        android:strokeWidth="1.5" />
+
+    <!-- Cerebro izquierdo -->
+    <path
+        android:pathData="M38,46 C36,42 38,38 42,37 C46,36 49,38 50,42 C51,46 49,50 46,52 C43,54 39,52 38,48Z"
+        android:fillColor="#7DD3FC" />
+
+    <!-- Cerebro derecho -->
+    <path
+        android:pathData="M70,46 C72,42 70,38 66,37 C62,36 59,38 58,42 C57,46 59,50 62,52 C65,54 69,52 70,48Z"
+        android:fillColor="#7DD3FC" />
+
+    <!-- Conexión cerebral central -->
+    <path
+        android:pathData="M50,42 Q54,40 58,42"
+        android:strokeColor="#7DD3FC"
+        android:strokeWidth="2"
+        android:fillColor="#00000000" />
+
+    <!-- Surcos cerebrales izquierda -->
+    <path
+        android:pathData="M40,43 Q44,41 47,44"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="1"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M39,47 Q43,46 46,48"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="1"
+        android:fillColor="#00000000" />
+
+    <!-- Surcos cerebrales derecha -->
+    <path
+        android:pathData="M61,43 Q64,41 68,44"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="1"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M62,47 Q65,46 69,48"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="1"
+        android:fillColor="#00000000" />
+
+    <!-- Destello superior -->
+    <path
+        android:pathData="M54,30 L55.5,33 L58,33 L56,35 L57,38 L54,36 L51,38 L52,35 L50,33 L52.5,33Z"
+        android:fillColor="#BAE6FD" />
+
+    <!-- Líneas de muro (ladrillos estilizados) -->
+    <path
+        android:pathData="M32,58 L76,58"
+        android:strokeColor="#3A3A3F"
+        android:strokeWidth="0.8"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M30,64 L78,64"
+        android:strokeColor="#3A3A3F"
+        android:strokeWidth="0.8"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M34,70 L74,70"
+        android:strokeColor="#3A3A3F"
+        android:strokeWidth="0.8"
+        android:fillColor="#00000000" />
+
+    <!-- Texto BW estilizado abajo -->
+    <path
+        android:pathData="M44,76 L44,80 L46,78 L48,80 L48,76"
+        android:strokeColor="#5EEAD4"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M52,76 L55,80 L58,76 L61,80 L64,76"
+        android:strokeColor="#5EEAD4"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+
+</vector>

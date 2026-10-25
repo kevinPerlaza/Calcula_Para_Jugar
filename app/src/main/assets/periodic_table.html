@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>118 Elementos - Tarjetas con Pop-up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Animación suave para el modal pop-up */
+        .modal-enter {
+            animation: popIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        /* Scrollbar elegante */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white">
+
+    <!-- Encabezado y Controles -->
+    <header class="sticky top-0 z-30 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-600 text-white font-extrabold text-lg shadow-md shadow-indigo-500/30">118</span>
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                            Tarjetas Pop-up de la Tabla Periódica
+                        </h1>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                        Haz clic en cualquiera de las 118 tarjetas para abrir un pop-up con sus datos e información clave.
+                    </p>
+                </div>
+
+                <!-- Buscador y Modo Estudio -->
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <div class="relative flex-grow sm:flex-grow-0 sm:w-64">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Buscar nombre, símbolo o N°..." 
+                            class="w-full bg-slate-800/90 border border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 rounded-xl pl-9 pr-4 py-2 text-sm text-white placeholder-slate-400 outline-none transition"
+                        >
+                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+
+                    <button 
+                        id="quizModeBtn" 
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer"
+                        title="Oculta el nombre en la tarjeta para poner a prueba tu memoria antes de abrir el pop-up"
+                    >
+                        <span id="quizDot" class="w-2.5 h-2.5 rounded-full bg-slate-500 transition"></span>
+                        <span>Modo Estudio (Ocultar nombres)</span>
+                    </button>
+
+                    <button 
+                        id="randomBtn" 
+                        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition cursor-pointer"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        <span>Elemento al azar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros por Categoría -->
+            <div id="categoryFilters" class="flex items-center gap-1.5 overflow-x-auto pt-3 pb-1 no-scrollbar">
+                <!-- Se generan dinámicamente -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Contador de estado -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2 flex items-center justify-between text-xs sm:text-sm text-slate-400">
+        <span id="resultsCount">Mostrando los 118 elementos</span>
+        <span class="hidden sm:inline text-slate-500">Consejo: Usa las flechas ⬅️ ➡️ del teclado para navegar entre pop-ups</span>
+    </div>
+
+    <!-- Cuadrícula de las 118 Tarjetas -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-16">
+        <div id="elementsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+            <!-- Tarjetas generadas por JS -->
+        </div>
+
+        <!-- Estado sin resultados -->
+        <div id="emptyState" class="hidden text-center py-16">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 border border-slate-800 text-slate-400 mb-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">No se encontraron elementos</h3>
+            <p class="text-sm text-slate-400 mt-1">Prueba con otro término de búsqueda o selecciona "Todos" en las categorías.</p>
+        </div>
+    </main>
+
+    <!-- MODAL POP-UP DE TARJETA DETALLADA -->
+    <div id="elementModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <!-- Contenedor de la tarjeta Pop-up -->
+        <div id="modalCard" class="relative w-full max-w-lg rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden modal-enter">
+            
+            <!-- Banner superior con color según categoría -->
+            <div id="modalHeaderBg" class="p-6 pb-8 relative overflow-hidden">
+                <div class="flex items-start justify-between relative z-10">
+                    <span id="modalCategoryBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/30 text-white backdrop-blur-md">
+                        Categoría
+                    </span>
+                    <button id="closeModalBtn" class="p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition cursor-pointer" title="Cerrar (Esc)">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Símbolo y Nombre Principal -->
+                <div class="mt-4 flex items-center gap-5 relative z-10">
+                    <div class="w-24 h-24 rounded-2xl bg-slate-950/40 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center shadow-inner shrink-0">
+                        <span id="modalZSmall" class="text-xs font-bold text-white/80">1</span>
+                        <span id="modalSymbol" class="text-4xl font-black text-white leading-none mt-0.5">H</span>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-widest text-white/80" id="modalNumberLabel">Elemento #1</div>
+                        <h2 id="modalName" class="text-3xl sm:text-4xl font-black text-white tracking-tight mt-0.5">Hidrógeno</h2>
+                        <p id="modalMass" class="text-sm font-medium text-white/90 mt-1">Masa atómica: 1.008 u</p>
+                    </div>
+                </div>
+
+                <!-- Marca de agua decorativa -->
+                <span id="modalWatermark" class="
+                    absolute -right-4 -bottom-8 text-9xl font-black text-white/10 select-none pointer-events-none
+                ">H</span>
+            </div>
+
+            <!-- Cuerpo de información del Pop-up -->
+            <div class="p-6 space-y-5">
+                <!-- Cuadrícula de datos rápidos -->
+                <div class="grid grid-cols-3 gap-2.5 text-center">
+                    <div class="bg-slate-800/70 border border-slate-700/60 rounded-2xl p-3">
+                        <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">N° Atómico (Z)</span>
+                        <span id="modalStatZ" class="text-lg font-extrabold text-white mt-0.5 block">1</span>
+                    </div>
+                    <div class="bg-slate-800/70 border border-slate-700/60 rounded-2xl p-3">
+                        <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Estado (20°C)</span>
+                        <span id="modalStatState" class="text-lg font-extrabold text-white mt-0.5 block">Gas</span>
+                    </div>
+                    <div class="bg-slate-800/70 border border-slate-700/60 rounded-2xl p-3">
+                        <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Periodo / Bloque</span>
+                        <span id="modalStatPeriod" class="text-lg font-extrabold text-white mt-0.5 block">P1 / s</span>
+                    </div>
+                </div>
+
+                <!-- Información y curiosidades del elemento -->
+                <div class="bg-slate-800/40 border border-slate-700/60 rounded-2xl p-4">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1.5 flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>Información y Usos Clave</span>
+                    </h3>
+                    <p id="modalInfo" class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        Descripción detallada del elemento...
+                    </p>
+                </div>
+
+                <!-- Consejo para tarjeta de estudio -->
+                <div id="latinTipBox" class="hidden bg-amber-500/10 border border-amber-500/30 rounded-2xl p-3.5 text-xs sm:text-sm text-amber-200 flex items-start gap-2.5">
+                    <span class="text-lg leading-none">💡</span>
+                    <div>
+                        <strong class="font-bold text-amber-300">¡Ojo en el examen! (Raíz antigua):</strong>
+                        <span id="latinTipText">Su símbolo proviene del latín.</span>
+                    </div>
+                </div>
+
+                <!-- Botones de navegación entre tarjetas en el Pop-up -->
+                <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                    <button id="prevElementBtn" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        <span id="prevBtnLabel">Anterior</span>
+                    </button>
+
+                    <span id="modalCounter" class="text-xs font-semibold text-slate-500">1 / 118</span>
+
+                    <button id="nextElementBtn" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition cursor-pointer">
+                        <span id="nextBtnLabel">Siguiente</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Paleta de estilos por categoría química
+        const CATEGORIES = {
+            "Todos": { badge: "bg-indigo-600 text-white", card: "", header: "" },
+            "No metal": {
+                card: "bg-sky-950/50 border-sky-700/50 hover:border-sky-400 text-sky-100",
+                badge: "bg-sky-500/20 text-sky-300 border-sky-500/30",
+                header: "bg-gradient-to-br from-sky-600 to-blue-800"
+            },
+            "Gas noble": {
+                card: "bg-purple-950/50 border-purple-700/50 hover:border-purple-400 text-purple-100",
+                badge: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+                header: "bg-gradient-to-br from-purple-600 to-indigo-900"
+            },
+            "Metal alcalino": {
+                card: "bg-rose-950/50 border-rose-700/50 hover:border-rose-400 text-rose-100",
+                badge: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+                header: "bg-gradient-to-br from-rose-600 to-red-800"
+            },
+            "Alcalinotérreo": {
+                card: "bg-orange-950/50 border-orange-700/50 hover:border-orange-400 text-orange-100",
+                badge: "bg-orange-500/20 text-orange-300 border-orange-500/30",
+                header: "bg-gradient-to-br from-orange-500 to-amber-800"
+            },
+            "Metaloide": {
+                card: "bg-teal-950/50 border-teal-700/50 hover:border-teal-400 text-teal-100",
+                badge: "bg-teal-500/20 text-teal-300 border-teal-500/30",
+                header: "bg-gradient-to-br from-teal-600 to-emerald-800"
+            },
+            "Halógeno": {
+                card: "bg-cyan-950/50 border-cyan-700/50 hover:border-cyan-400 text-cyan-100",
+                badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+                header: "bg-gradient-to-br from-cyan-600 to-teal-800"
+            },
+            "Metal de transición": {
+                card: "bg-amber-950/40 border-amber-700/50 hover:border-amber-400 text-amber-100",
+                badge: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+                header: "bg-gradient-to-br from-amber-600 to-yellow-800"
+            },
+            "Metal del bloque p": {
+                card: "bg-emerald-950/40 border-emerald-700/50 hover:border-emerald-400 text-emerald-100",
+                badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+                header: "bg-gradient-to-br from-emerald-600 to-green-800"
+            },
+            "Lantánido": {
+                card: "bg-pink-950/40 border-pink-700/50 hover:border-pink-400 text-pink-100",
+                badge: "bg-pink-500/20 text-pink-300 border-pink-500/30",
+                header: "bg-gradient-to-br from-pink-600 to-rose-800"
+            },
+            "Actínido": {
+                card: "bg-fuchsia-950/40 border-fuchsia-700/50 hover:border-fuchsia-400 text-fuchsia-100",
+                badge: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30",
+                header: "bg-gradient-to-br from-fuchsia-600 to-purple-900"
+            }
+        };
+
+        // Raíces latinas/especiales para mostrar recordatorio en el pop-up
+        const LATIN_ROOTS = {
+            11: "Sodio tiene el símbolo Na por su nombre en latín 'Natrium'.",
+            19: "Potasio tiene el símbolo K por su nombre en latín 'Kalium'.",
+            26: "Hierro tiene el símbolo Fe por su nombre en latín 'Ferrum'.",
+            29: "Cobre tiene el símbolo Cu por su nombre en latín 'Cuprum'.",
+            47: "Plata tiene el símbolo Ag por su nombre en latín 'Argentum'.",
+            50: "Estaño tiene el símbolo Sn por su nombre en latín 'Stannum'.",
+            51: "Antimonio tiene el símbolo Sb por su nombre en latín 'Stibium'.",
+            74: "Wolframio (Tungsteno) usa el símbolo W del alemán 'Wolfram'.",
+            79: "Oro tiene el símbolo Au por su nombre en latín 'Aurum'.",
+            80: "Mercurio tiene el símbolo Hg por el latín 'Hydrargyrum' (plata líquida).",
+            82: "Plomo tiene el símbolo Pb por su nombre en latín 'Plumbum'."
+        };
+
+        // Base de datos completa de los 118 elementos con información individual para cada Pop-up
+        const ELEMENTS = [
+            { z: 1, s: "H", n: "Hidrógeno", c: "No metal", m: "1.008", st: "Gas", p: "P1 / s", info: "Es el elemento más ligero, simple y abundante del universo (constituye cerca del 75% de la materia visible). Es el combustible principal de las estrellas como el Sol y un componente esencial del agua y de toda la materia orgánica." },
+            { z: 2, s: "He", n: "Helio", c: "Gas noble", m: "4.0026", st: "Gas", p: "P1 / s", info: "Segundo elemento más abundante del universo. Al ser un gas noble inerte y mucho más ligero que el aire sin ser inflamable, se utiliza para inflar globos y dirigibles, además de refrigerar imanes de resonancia magnética." },
+            { z: 3, s: "Li", n: "Litio", c: "Metal alcalino", m: "6.94", st: "Sólido", p: "P2 / s", info: "Es el metal y elemento sólido menos denso que existe (flota en aceite). Hoy en día es indispensable para fabricar las baterías recargables de teléfonos móviles, computadoras portátiles y vehículos eléctricos." },
+            { z: 4, s: "Be", n: "Berilio", c: "Alcalinotérreo", m: "9.0122", st: "Sólido", p: "P2 / s", info: "Metal ligero pero extremadamente rígido y con un punto de fusión muy alto. Se emplea en aleaciones aeroespaciales, satélites, espejos del telescopio espacial James Webb y ventanas para tubos de rayos X." },
+            { z: 5, s: "B", n: "Boro", c: "Metaloide", m: "10.81", st: "Sólido", p: "P2 / p", info: "Metaloide muy duro y resistente al calor. Es fundamental para fabricar vidrio de borosilicato (tipo Pyrex, que resiste cambios bruscos de temperatura), fibra de vidrio, detergentes y fertilizantes agrícolas." },
+            { z: 6, s: "C", n: "Carbono", c: "No metal", m: "12.011", st: "Sólido", p: "P2 / p", info: "La base química de toda la vida conocida debido a su capacidad de formar millones de compuestos. En la naturaleza se presenta en formas tan distintas como el grafito blando de los lápices y el diamante ultraduro." },
+            { z: 7, s: "N", n: "Nitrógeno", c: "No metal", m: "14.007", st: "Gas", p: "P2 / p", info: "Constituye el 78% del aire que respiramos. Es indispensable para formar aminoácidos, proteínas y el ADN de los seres vivos. En estado líquido (-196 °C) se usa como potente refrigerante criogénico." },
+            { z: 8, s: "O", n: "Oxígeno", c: "No metal", m: "15.999", st: "Gas", p: "P2 / p", info: "Representa cerca del 21% de la atmósfera terrestre y es el elemento más abundante en la corteza de la Tierra. Es vital para la respiración celular de la mayoría de los seres vivos y para los procesos de combustión." },
+            { z: 9, s: "F", n: "Flúor", c: "Halógeno", m: "18.998", st: "Gas", p: "P2 / p", info: "Es el elemento más electronegativo y químicamente reactivo de toda la tabla periódica. En pequeñas dosis se añade a las pastas dentales para prevenir las caries y se usa para fabricar recubrimientos antiadherentes como el teflón." },
+            { z: 10, s: "Ne", n: "Neón", c: "Gas noble", m: "20.180", st: "Gas", p: "P2 / p", info: "Gas noble incoloro e inerte que emite un característico brillo rojizo-anaranjado intenso cuando se somete a una descarga eléctrica, razón por la cual es famoso en los letreros luminosos publicitarios." },
+            { z: 11, s: "Na", n: "Sodio", c: "Metal alcalino", m: "22.990", st: "Sólido", p: "P3 / s", info: "Metal blando y plateado que reacciona violentamente con el agua. Combinado con el cloro forma la sal común de mesa (cloruro de sodio) y es un electrolito esencial para transmitir impulsos nerviosos en el cuerpo." },
+            { z: 12, s: "Mg", n: "Magnesio", c: "Alcalinotérreo", m: "24.305", st: "Sólido", p: "P3 / s", info: "Metal ligero que arde con una llama blanca cegadora (usado en pirotecnia y bengalas). Biológicamente es el átomo central de la molécula de clorofila en las plantas e interviene en cientos de reacciones del cuerpo humano." },
+            { z: 13, s: "Al", n: "Aluminio", c: "Metal del bloque p", m: "26.982", st: "Sólido", p: "P3 / p", info: "Es el metal más abundante en la corteza terrestre. Por ser muy ligero, maleable, inoxidable y 100% reciclable, se utiliza masivamente en aviones, latas de bebidas, cables de alta tensión y papel de cocina." },
+            { z: 14, s: "Si", n: "Silicio", c: "Metaloide", m: "28.085", st: "Sólido", p: "P3 / p", info: "Segundo elemento más abundante en la corteza terrestre (forma la arena y el cuarzo). Como semiconductor, es el corazón de la era digital: con él se fabrican los microchips de computadoras y los paneles solares." },
+            { z: 15, s: "P", n: "Fósforo", c: "No metal", m: "30.974", st: "Sólido", p: "P3 / p", info: "Elemento indispensable para la vida: forma parte de los huesos, los dientes, el ADN y la molécula de energía celular (ATP). También se emplea en las cajas de cerillas y en fertilizantes agrícolas." },
+            { z: 16, s: "S", n: "Azufre", c: "No metal", m: "32.06", st: "Sólido", p: "P3 / p", info: "No metal de intenso color amarillo, muy común en zonas volcánicas. Se usa para fabricar ácido sulfúrico (el compuesto industrial más producido del mundo), vulcanizar el caucho, elaborar pólvora y fungicidas." },
+            { z: 17, s: "Cl", n: "Cloro", c: "Halógeno", m: "35.45", st: "Gas", p: "P3 / p", info: "Gas amarillo-verdoso de olor penetrante y gran poder oxidante. Es fundamental para potabilizar el agua de consumo humano, desinfectar piscinas y fabricar plásticos tan comunes como el PVC." },
+            { z: 18, s: "Ar", n: "Argón", c: "Gas noble", m: "39.948", st: "Gas", p: "P3 / p", info: "Es el tercer gas más abundante de la atmósfera terrestre (cerca del 0.93%). Al no reaccionar con otros elementos, se utiliza como atmósfera protectora en soldaduras industriales y dentro de bombillas incandescentes." },
+            { z: 19, s: "K", n: "Potasio", c: "Metal alcalino", m: "39.098", st: "Sólido", p: "P4 / s", info: "Metal alcalino tan blando que puede cortarse con un cuchillo y que reacciona rápido con el agua. Es un nutriente crucial para el funcionamiento del corazón y los músculos, muy abundante en frutas como el plátano." },
+            { z: 20, s: "Ca", n: "Calcio", c: "Alcalinotérreo", m: "40.078", st: "Sólido", p: "P4 / s", info: "Es el mineral metálico más abundante en el cuerpo humano, indispensable para la fortaleza de los huesos y dientes, así como para la contracción muscular. En la construcción es la base del cemento, el mármol y la cal." },
+            { z: 21, s: "Sc", n: "Escandio", c: "Metal de transición", m: "44.956", st: "Sólido", p: "P4 / d", info: "Metal de transición plateado y ligero. Mezclado en pequeñas proporciones con aluminio crea aleaciones ultrarresistentes utilizadas en aviones de combate, cuadros de bicicletas de alta gama y bates de béisbol." },
+            { z: 22, s: "Ti", n: "Titanio", c: "Metal de transición", m: "47.867", st: "Sólido", p: "P4 / d", info: "Famoso por ser tan resistente como el acero pero un 45% más ligero y totalmente inmune a la corrosión. Al ser biocompatible (el cuerpo no lo rechaza), es ideal para prótesis médicas, implantes dentales y naves espaciales." },
+            { z: 23, s: "V", n: "Vanadio", c: "Metal de transición", m: "50.942", st: "Sólido", p: "P4 / d", info: "Metal duro que se añade al acero para darle una enorme resistencia al desgaste y a los impactos, por lo que es un clásico en herramientas mecánicas (llaves de cromo-vanadio), ejes de motores y baterías de flujo." },
+            { z: 24, s: "Cr", n: "Cromo", c: "Metal de transición", m: "51.996", st: "Sólido", p: "P4 / d", info: "Metal muy brillante y resistente al deslustre. Es el ingrediente clave que hace que el 'acero inoxidable' no se oxide. Además, sus compuestos dan el color rojo a los rubíes y el verde a las esmeraldas." },
+            { z: 25, s: "Mn", n: "Manganeso", c: "Metal de transición", m: "54.938", st: "Sólido", p: "P4 / d", info: "Elemento indispensable en la industria siderúrgica: endurece el acero utilizado en vías de ferrocarril, cajas fuertes y cascos. También es fundamental en las pilas alcalinas y en la fotosíntesis de las plantas." },
+            { z: 26, s: "Fe", n: "Hierro", c: "Metal de transición", m: "55.845", st: "Sólido", p: "P4 / d", info: "El metal más utilizado por la humanidad (al combinarse con carbono forma el acero). Constituye la mayor parte del núcleo de la Tierra y está presente en la hemoglobina que transporta oxígeno en nuestra sangre." },
+            { z: 27, s: "Co", n: "Cobalto", c: "Metal de transición", m: "58.933", st: "Sólido", p: "P4 / d", info: "Metal ferromagnético famoso desde la antigüedad por dar un intenso color 'azul cobalto' al vidrio y la cerámica. Hoy es vital en baterías de vehículos eléctricos, turbinas de avión y forma parte de la vitamina B12." },
+            { z: 28, s: "Ni", n: "Níquel", c: "Metal de transición", m: "58.693", st: "Sólido", p: "P4 / d", info: "Metal duro, maleable y muy resistente a la oxidación. Se utiliza extensamente para fabricar monedas, recubrimientos protectores, acero inoxidable, cuerdas de guitarra eléctrica y baterías recargables." },
+            { z: 29, s: "Cu", n: "Cobre", c: "Metal de transición", m: "63.546", st: "Sólido", p: "P4 / d", info: "Uno de los primeros metales trabajados por el ser humano (junto con el estaño forma el bronce). Gracias a su excelente conductividad eléctrica y térmica, es el material estándar de los cables eléctricos y tuberías." },
+            { z: 30, s: "Zn", n: "Cinc (Zinc)", c: "Metal de transición", m: "65.38", st: "Sólido", p: "P4 / d", info: "Se emplea principalmente para 'galvanizar' el hierro y el acero, protegiéndolos de la oxidación. Aleado con cobre forma el latón, y en nuestro organismo es un mineral esencial para el sistema inmunológico." },
+            { z: 31, s: "Ga", n: "Galio", c: "Metal del bloque p", m: "69.723", st: "Sólido", p: "P4 / p", info: "Un metal curioso cuyo punto de fusión es de apenas 29.7 °C, por lo que se derrite literalmente al sostenerlo en la palma de la mano. Es clave en pantallas LED, láseres, paneles solares y chips de telefonía móvil." },
+            { z: 32, s: "Ge", n: "Germanio", c: "Metaloide", m: "72.630", st: "Sólido", p: "P4 / p", info: "Metaloide semiconductor con el que se fabricaron los primeros transistores de la historia. Hoy se utiliza en cables de fibra óptica, lentes de cámaras térmicas de visión nocturna y celdas solares espaciales." },
+            { z: 33, s: "As", n: "Arsénico", c: "Metaloide", m: "74.922", st: "Sólido", p: "P4 / p", info: "Conocido históricamente por la alta toxicidad de sus compuestos. En la industria tecnológica moderna se combina con galio (arseniuro de galio) para fabricar semiconductores de alta velocidad y diodos láser." },
+            { z: 34, s: "Se", n: "Selenio", c: "No metal", m: "78.971", st: "Sólido", p: "P4 / p", info: "No metal que conduce mejor la electricidad cuando recibe luz (fotoconductor), por lo que fue clave en las fotocopiadoras y celdas fotoeléctricas. También se usa en champús anticaspa y es un antioxidante esencial en trazas." },
+            { z: 35, s: "Br", n: "Bromo", c: "Halógeno", m: "79.904", st: "Líquido", p: "P4 / p", info: "Junto con el mercurio, es uno de los dos únicos elementos que son líquidos a temperatura ambiente. Es un líquido rojizo oscuro que se emplea en retardantes de fuego, purificación de aguas y fotografía." },
+            { z: 36, s: "Kr", n: "Kriptón", c: "Gas noble", m: "83.798", st: "Gas", p: "P4 / p", info: "Gas noble inerte cuyo nombre proviene del griego 'kryptos' (oculto). Se utiliza en lámparas fotográficas de flash de alta velocidad, faros potentes, láseres médicos oculares y ventanas de aislamiento térmico." },
+            { z: 37, s: "Rb", n: "Rubidio", c: "Metal alcalino", m: "85.468", st: "Sólido", p: "P5 / s", info: "Metal alcalino muy blando y tan reactivo que puede inflamarse espontáneamente en contacto con el aire. Se utiliza en relojes atómicos de altísima precisión, sistemas GPS y fuegos artificiales de color púrpura." },
+            { z: 38, s: "Sr", n: "Estroncio", c: "Alcalinotérreo", m: "87.62", st: "Sólido", p: "P5 / s", info: "Metal alcalinotérreo cuyas sales producen el color rojo carmesí más brillante en los fuegos artificiales y bengalas de emergencia marítima. También se emplea en pastas dentales para dientes sensibles." },
+            { z: 39, s: "Y", n: "Itrio", c: "Metal de transición", m: "88.906", st: "Sólido", p: "P5 / d", info: "Metal de transición utilizado para crear los fósforos de color rojo en pantallas, en láseres quirúrgicos e industriales (YAG), lentes de cámaras resistentes al calor y materiales superconductores." },
+            { z: 40, s: "Zr", n: "Circonio", c: "Metal de transición", m: "91.224", st: "Sólido", p: "P5 / d", info: "Metal muy resistente al calor y a la corrosión que no absorbe neutrones, por lo que es indispensable para recubrir el combustible en los reactores nucleares. Su óxido (circonia) se usa en coronas dentales y joyería." },
+            { z: 41, s: "Nb", n: "Niobio", c: "Metal de transición", m: "92.906", st: "Sólido", p: "P5 / d", info: "Metal dúctil que mejora drásticamente la resistencia del acero en gasoductos, puentes y cohetes espaciales. A temperaturas muy bajas se vuelve superconductor, usándose en imanes de aceleradores de partículas." },
+            { z: 42, s: "Mo", n: "Molibdeno", c: "Metal de transición", m: "95.95", st: "Sólido", p: "P5 / d", info: "Posee uno de los puntos de fusión más altos de todos los elementos. Se usa para fabricar aceros ultrarresistentes a altas temperaturas, lubricantes industriales y es un oligoelemento vital para fijar nitrógeno en las plantas." },
+            { z: 43, s: "Tc", n: "Tecnecio", c: "Metal de transición", m: "98", st: "Sólido", p: "P5 / d", info: "Es el elemento más ligero sin isótopos estables y fue el primer elemento producido artificialmente (1937). En medicina nuclear es el radioisótopo más usado del mundo para obtener diagnósticos por imagen de órganos." },
+            { z: 44, s: "Ru", n: "Rutenio", c: "Metal de transición", m: "101.07", st: "Sólido", p: "P5 / d", info: "Metal raro del grupo del platino que se utiliza para endurecer contactos eléctricos, en resistencias de chips electrónicos, discos duros de gran capacidad y catalizadores de la industria química." },
+            { z: 45, s: "Rh", n: "Rodio", c: "Metal de transición", m: "102.91", st: "Sólido", p: "P5 / d", info: "Uno de los metales más raros y caros del planeta, altamente reflectante e inoxidable. Su uso principal está en los convertidores catalíticos de los automóviles para reducir gases contaminantes y para bañar joyas de oro blanco." },
+            { z: 46, s: "Pd", n: "Paladio", c: "Metal de transición", m: "106.42", st: "Sólido", p: "P5 / d", info: "Metal precioso del grupo del platino con la extraordinaria capacidad de absorber hasta 900 veces su propio volumen en gas hidrógeno como si fuera una esponja. Es clave en catalizadores automotrices y odontología." },
+            { z: 47, s: "Ag", n: "Plata", c: "Metal de transición", m: "107.87", st: "Sólido", p: "P5 / d", info: "Posee la mayor conductividad eléctrica, térmica y reflectividad óptica de todos los metales conocidos. Se emplea desde la antigüedad en monedas y joyería, y hoy en paneles solares, electrónica y vendajes antibacterianos." },
+            { z: 48, s: "Cd", n: "Cadmio", c: "Metal de transición", m: "112.41", st: "Sólido", p: "P5 / d", info: "Metal blando de tono azulado usado tradicionalmente en baterías recargables de níquel-cadmio (Ni-Cd), pigmentos amarillos y naranjas muy vivos para artistas y barras de control en reactores nucleares." },
+            { z: 49, s: "In", n: "Indio", c: "Metal del bloque p", m: "114.82", st: "Sólido", p: "P5 / p", info: "Metal muy blando que emite un curioso 'crujido' al doblarse. Bajo la forma de óxido de indio y estaño (ITO), es un material transparente que conduce electricidad, haciendo posibles todas las pantallas táctiles actuales." },
+            { z: 50, s: "Sn", n: "Estaño", c: "Metal del bloque p", m: "118.71", st: "Sólido", p: "P5 / p", info: "Metal maleable e inoxidable que funde a baja temperatura. Es el componente principal de la soldadura blanda para circuitos electrónicos, del recubrimiento de las latas de conserva (hojalata) y del bronce (junto al cobre)." },
+            { z: 51, s: "Sb", n: "Antimonio", c: "Metaloide", m: "121.76", st: "Sólido", p: "P5 / p", info: "Metaloide quebradizo que en el Antiguo Egipto se usaba como delineador de ojos (kohl). Actualmente se emplea para hacer retardantes de llama en textiles y plásticos, y para endurecer el plomo de las baterías." },
+            { z: 52, s: "Te", n: "Telurio", c: "Metaloide", m: "127.60", st: "Sólido", p: "P5 / p", info: "Metaloide escaso en la Tierra cuyo nombre proviene de 'Tellus' (la Tierra). Se utiliza en paneles solares de alta eficiencia (telururo de cadmio), discos ópticos regrabables y aleaciones fáciles de mecanizar." },
+            { z: 53, s: "I", n: "Yodo", c: "Halógeno", m: "126.90", st: "Sólido", p: "P5 / p", info: "Sólido brillante negro-violáceo que al calentarse sublima en un llamativo vapor violeta. Es indispensable para que la glándula tiroides produzca hormonas (por eso se añade a la sal yodada) y se usa como antiséptico en heridas." },
+            { z: 54, s: "Xe", n: "Xenón", c: "Gas noble", m: "131.29", st: "Gas", p: "P5 / p", info: "Gas noble pesado y denso que emite una intensa luz blanca azulada al electrificarse. Se emplea en faros de automóviles de alta gama, proyectores de cine IMAX, anestesia médica y motores de propulsión iónica para satélites." },
+            { z: 55, s: "Cs", n: "Cesio", c: "Metal alcalino", m: "132.91", st: "Sólido", p: "P6 / s", info: "Metal dorado pálido que se funde a solo 28.5 °C y reacciona de forma explosiva con el agua fría. Es el corazón de los relojes atómicos de cesio, los cuales definen oficialmente la duración exacta de un segundo en todo el mundo." },
+            { z: 56, s: "Ba", n: "Bario", c: "Alcalinotérreo", m: "137.33", st: "Sólido", p: "P6 / s", info: "Metal pesado y reactivo que aporta el color verde brillante a los fuegos artificiales. En medicina se suministra como 'papilla de sulfato de bario' porque bloquea los rayos X y permite radiografiar el aparato digestivo." },
+            { z: 57, s: "La", n: "Lantano", c: "Lantánido", m: "138.91", st: "Sólido", p: "P6 / f", info: "Da nombre a la serie de los lantánidos o tierras raras. Se utiliza ampliamente para fabricar lentes de vidrio óptico de alta refracción para cámaras profesionales y telescopios, así como baterías de autos híbridos." },
+            { z: 58, s: "Ce", n: "Cerio", c: "Lantánido", m: "140.12", st: "Sólido", p: "P6 / f", info: "Es el más abundante de los elementos de tierras raras. Emite chispas fácilmente al frotarse, por lo que es el ingrediente principal de las 'piedras' de los encendedores de bolsillo, además de usarse en hornos autolimpiables." },
+            { z: 59, s: "Pr", n: "Praseodimio", c: "Lantánido", m: "140.91", st: "Sólido", p: "P6 / f", info: "Tierra rara que se emplea para crear imanes de alta potencia en turbinas eólicas y motores eléctricos, además de fabricar gafas especiales de vidrio amarillo que protegen los ojos de soldadores y sopladores de vidrio." },
+            { z: 60, s: "Nd", n: "Neodimio", c: "Lantánido", m: "144.24", st: "Sólido", p: "P6 / f", info: "Con él (combinado con hierro y boro) se fabrican los imanes permanentes más potentes que existen. Gracias al neodimio tenemos auriculares pequeños de gran sonido, micrófonos, discos duros y motores de coches eléctricos." },
+            { z: 61, s: "Pm", n: "Prometio", c: "Lantánido", m: "145", st: "Sólido", p: "P6 / f", info: "Es el único lantánido radiactivo y prácticamente no existe de forma natural en la corteza terrestre. Se utiliza en baterías nucleares en miniatura de larga duración para marcapasos y sondas espaciales." },
+            { z: 62, s: "Sm", n: "Samario", c: "Lantánido", m: "150.36", st: "Sólido", p: "P6 / f", info: "Forma imanes de samario-cobalto capaces de mantener su magnetismo a temperaturas altísimas donde otros imanes fallan. También se usa en pastillas de guitarras eléctricas y en tratamientos médicos contra el dolor óseo." },
+            { z: 63, s: "Eu", n: "Europio", c: "Lantánido", m: "151.96", st: "Sólido", p: "P6 / f", info: "Es el más reactivo de las tierras raras. Sus compuestos brillan intensamente bajo la luz ultravioleta, razón por la cual se imprime en los billetes de euro y otros documentos para evitar falsificaciones." },
+            { z: 64, s: "Gd", n: "Gadolinio", c: "Lantánido", m: "157.25", st: "Sólido", p: "P6 / f", info: "Posee propiedades magnéticas excepcionales. Se utiliza en hospitales como medio de contraste inyectable para mejorar la nitidez de las imágenes por resonancia magnética (IRM) y en blindajes de reactores nucleares." },
+            { z: 65, s: "Tb", n: "Terbio", c: "Lantánido", m: "158.93", st: "Sólido", p: "P6 / f", info: "Tierra rara plateada utilizada para generar el color verde brillante en pantallas y lámparas de bajo consumo. También forma parte de aleaciones 'magnetostrictivas' que cambian de forma con campos magnéticos (sonares)." },
+            { z: 66, s: "Dy", n: "Disprosio", c: "Lantánido", m: "162.50", st: "Sólido", p: "P6 / f", info: "Se añade a los imanes de neodimio para que no pierdan su fuerza magnética cuando se calientan, lo cual es indispensable en los motores de tracción de vehículos eléctricos y generadores de turbinas eólicas." },
+            { z: 67, s: "Ho", n: "Holmio", c: "Lantánido", m: "164.93", st: "Sólido", p: "P6 / f", info: "Es el elemento con mayor fuerza magnética de toda la tabla periódica, por lo que se usa para concentrar campos magnéticos intensos en laboratorio y en láseres médicos para cirugías oculares y de cálculos renales." },
+            { z: 68, s: "Er", n: "Erbio", c: "Lantánido", m: "167.26", st: "Sólido", p: "P6 / f", info: "Fundamental para las telecomunicaciones globales: se añade a los cables submarinos de fibra óptica para amplificar las señales láser de internet a largas distancias. Sus sales dan un bello tono rosado al vidrio." },
+            { z: 69, s: "Tm", n: "Tulio", c: "Lantánido", m: "168.93", st: "Sólido", p: "P6 / f", info: "El menos abundante de los lantánidos naturales. Se utiliza en equipos portátiles de rayos X que no necesitan electricidad para funcionar, láseres quirúrgicos de alta precisión y tintas de seguridad." },
+            { z: 70, s: "Yb", n: "Iterbio", c: "Lantánido", m: "173.05", st: "Sólido", p: "P6 / f", info: "Tierra rara maleable empleada en los relojes atómicos experimentales más precisos jamás creados, en láseres industriales de fibra y en medidores de tensión para monitorear terremotos y deformaciones del suelo." },
+            { z: 71, s: "Lu", n: "Lutecio", c: "Lantánido", m: "174.97", st: "Sólido", p: "P6 / f", info: "Es el último, más pesado, más duro y más denso de la serie de los lantánidos. Se emplea como catalizador en el refinado del petróleo, en detectores de tomografía médica (PET) y para datar meteoritos." },
+            { z: 72, s: "Hf", n: "Hafnio", c: "Metal de transición", m: "178.49", st: "Sólido", p: "P6 / d", info: "Metal muy resistente a la corrosión con una enorme capacidad para absorber neutrones, por lo que se usa en las barras de control de submarinos nucleares y como aislante microscópico en procesadores de computadora." },
+            { z: 73, s: "Ta", n: "Tántalo", c: "Metal de transición", m: "180.95", st: "Sólido", p: "P6 / d", info: "Metal extremadamente resistente al ataque de los ácidos y totalmente compatible con el tejido humano. Se usa para fabricar microcondensadores indispensables en teléfonos móviles y placas para reparación ósea." },
+            { z: 74, s: "W", n: "Wolframio (Tungsteno)", c: "Metal de transición", m: "183.84", st: "Sólido", p: "P6 / d", info: "Posee el punto de fusión más alto de todos los metales (3422 °C). Por eso fue el material clásico de los filamentos de las bombillas incandescentes, además de usarse en brocas de perforación extrema y toberas de cohetes." },
+            { z: 75, s: "Re", n: "Renio", c: "Metal de transición", m: "186.21", st: "Sólido", p: "P6 / d", info: "Uno de los elementos más escasos de la corteza terrestre y con altísimo punto de fusión. Se usa en superaleaciones para las palas de turbinas de aviones a reacción y como catalizador para producir gasolina sin plomo." },
+            { z: 76, s: "Os", n: "Osmio", c: "Metal de transición", m: "190.23", st: "Sólido", p: "P6 / d", info: "Es el elemento natural más denso que existe en la Tierra (más del doble de denso que el plomo). Al ser sumamente duro e inalterable, se emplea en puntas de plumas estilográficas de lujo, agujas de tocadiscos y contactos eléctricos." },
+            { z: 77, s: "Ir", n: "Iridio", c: "Metal de transición", m: "192.22", st: "Sólido", p: "P6 / d", info: "El metal más resistente a la corrosión que se conoce. Es escaso en la corteza terrestre pero abundante en los meteoritos (una capa de iridio de hace 66 millones de años probó el impacto que extinguió a los dinosaurios)." },
+            { z: 78, s: "Pt", n: "Platino", c: "Metal de transición", m: "195.08", st: "Sólido", p: "P6 / d", info: "Metal precioso denso, maleable e inalterable. Además de la alta joyería, es esencial en convertidores catalíticos de vehículos, electrodos de marcapasos cardíacos y medicamentos de quimioterapia contra el cáncer." },
+            { z: 79, s: "Au", n: "Oro", c: "Metal de transición", m: "196.97", st: "Sólido", p: "P6 / d", info: "El metal más maleable y dúctil conocido (un solo gramo puede estirarse en una lámina de un metro cuadrado). No se oxida ni pierde su brillo jamás, usándose en reservas monetarias, joyería, microelectrónica y visores de astronautas." },
+            { z: 80, s: "Hg", n: "Mercurio", c: "Metal de transición", m: "200.59", st: "Líquido", p: "P6 / d", info: "Es el único metal líquido a temperatura ambiente. Aunque tradicionalmente se utilizó en termómetros, barómetros y amalgamas dentales, hoy su uso está muy restringido debido a la toxicidad de sus vapores." },
+            { z: 81, s: "Tl", n: "Talio", c: "Metal del bloque p", m: "204.38", st: "Sólido", p: "P6 / p", info: "Metal blando y grisáceo sumamente tóxico. En entornos controlados se utiliza en detectores infrarrojos, vidrios ópticos especiales de bajo punto de fusión y en pruebas médicas de esfuerzo cardíaco." },
+            { z: 82, s: "Pb", n: "Plomo", c: "Metal del bloque p", m: "207.2", st: "Sólido", p: "P6 / p", info: "Metal pesado, blando y muy denso. Aunque se ha retirado de pinturas, gasolinas y tuberías por su toxicidad, sigue siendo fundamental en las baterías de arranque de los automóviles y en delantales de protección contra rayos X." },
+            { z: 83, s: "Bi", n: "Bismuto", c: "Metal del bloque p", m: "208.98", st: "Sólido", p: "P6 / p", info: "Famoso por formar espectaculares cristales escalonados con reflejos iridiscentes de arcoíris al enfriarse. Al no ser tóxico como el plomo, se usa en medicamentos estomacales (subsalicilato de bismuto), cosméticos y soldaduras." },
+            { z: 84, s: "Po", n: "Polonio", c: "Metal del bloque p", m: "209", st: "Sólido", p: "P6 / p", info: "Elemento altamente radiactivo descubierto por Marie y Pierre Curie en 1898 y nombrado en honor a Polonia. Se utiliza en cepillos industriales para eliminar la electricidad estática y como fuente de calor en sondas espaciales." },
+            { z: 85, s: "At", n: "Astato", c: "Halógeno", m: "210", st: "Sólido", p: "P6 / p", info: "Es el elemento natural más raro de toda la corteza terrestre (se estima que en todo el planeta hay menos de 1 gramo en un momento dado). Sus isótopos de vida corta se investigan para radioterapia dirigida contra el cáncer." },
+            { z: 86, s: "Rn", n: "Radón", c: "Gas noble", m: "222", st: "Gas", p: "P6 / p", info: "Gas noble radiactivo, incoloro e inodoro que emana de forma natural por la desintegración del uranio en rocas graníticas y suelos. Es importante ventilar sótanos para evitar su acumulación en viviendas." },
+            { z: 87, s: "Fr", n: "Francio", c: "Metal alcalino", m: "223", st: "Sólido", p: "P7 / s", info: "El segundo elemento más escaso de la corteza terrestre y altamente radiactivo (su vida media máxima es de apenas 22 minutos). Fue el último elemento descubierto en la naturaleza antes de los puramente sintéticos." },
+            { z: 88, s: "Ra", n: "Radio", c: "Alcalinotérreo", m: "226", st: "Sólido", p: "P7 / s", info: "Descubierto por los esposos Curie por su intensa radiactividad que lo hacía brillar con una tenue luz azulada en la oscuridad. Antiguamente se usaba en agujas luminosas de relojes antes de conocerse sus riesgos." },
+            { z: 89, s: "Ac", n: "Actinio", c: "Actínido", m: "227", st: "Sólido", p: "P7 / f", info: "Metal radiactivo plateado que brilla en la oscuridad con luz azul pálida al ionizar el aire que lo rodea. Da nombre a la serie de los actínidos y se investiga en inmunoterapia dirigida contra tumores." },
+            { z: 90, s: "Th", n: "Torio", c: "Actínido", m: "232.04", st: "Sólido", p: "P7 / f", info: "Nombrado en honor a Thor, dios nórdico del trueno. Es un metal débilmente radiactivo tres veces más abundante que el uranio, estudiado como un combustible nuclear alternativo más seguro para el futuro." },
+            { z: 91, s: "Pa", n: "Protactinio", c: "Actínido", m: "231.04", st: "Sólido", p: "P7 / f", info: "Su nombre significa 'padre del actinio', ya que al desintegrarse da origen a ese elemento. Es muy escaso, denso y radiactivo, por lo que su uso se limita a la investigación científica y a datar sedimentos marinos antiguos." },
+            { z: 92, s: "U", n: "Uranio", c: "Actínido", m: "238.03", st: "Sólido", p: "P7 / f", info: "El elemento natural de mayor peso atómico en cantidades significativas. Su isótopo U-235 es fisionable y constituye el combustible principal de las centrales nucleares que generan electricidad en todo el mundo." },
+            { z: 93, s: "Np", n: "Neptunio", c: "Actínido", m: "237", st: "Sólido", p: "P7 / f", info: "Fue el primer elemento 'transuránico' producido sintéticamente (en 1940), nombrado por el planeta Neptuno al seguir al uranio. Se utiliza en detectores de neutrones y como precursor para producir plutonio-238." },
+            { z: 94, s: "Pu", n: "Plutonio", c: "Actínido", m: "244", st: "Sólido", p: "P7 / f", info: "Metal radiactivo clave en energía nuclear. Su isótopo Pu-238 genera calor constante durante décadas, sirviendo como batería nuclear para las sondas Voyager, New Horizons y los rovers Curiosity y Perseverance en Marte." },
+            { z: 95, s: "Am", n: "Americio", c: "Actínido", m: "243", st: "Sólido", p: "P7 / f", info: "Es el único elemento sintético que probablemente tengas en casa: una cantidad microscópica de americio-241 se utiliza dentro de los detectores domésticos de humo para ionizar el aire y detectar incendios a tiempo." },
+            { z: 96, s: "Cm", n: "Curio", c: "Actínido", m: "247", st: "Sólido", p: "P7 / f", info: "Elemento sintético nombrado en honor a Marie y Pierre Curie. Emite partículas alfa con tanta intensidad que se ha utilizado en espectrómetros de misiones espaciales para analizar la composición química de las rocas marcianas." },
+            { z: 97, s: "Bk", n: "Berkelio", c: "Actínido", m: "247", st: "Sólido", p: "P7 / f", info: "Sintetizado en 1949 en la Universidad de California en Berkeley. Aunque no tiene aplicaciones comerciales, ha sido indispensable como blanco en aceleradores de partículas para crear elementos superpesados como el teneso." },
+            { z: 98, s: "Cf", n: "Californio", c: "Actínido", m: "251", st: "Sólido", p: "P7 / f", info: "Es un emisor de neutrones extraordinariamente potente (un solo microgramo emite 170 millones de neutrones por minuto). Se usa para encender reactores nucleares, detectar agua o petróleo en pozos y analizar carbón." },
+            { z: 99, s: "Es", n: "Einstenio", c: "Actínido", m: "252", st: "Sólido", p: "P7 / f", info: "Descubierto en 1952 entre los restos de la primera prueba de la bomba de hidrógeno en el Pacífico y nombrado en honor a Albert Einstein. Se produce en cantidades minúsculas exclusivamente para investigación." },
+            { z: 100, s: "Fm", n: "Fermio", c: "Actínido", m: "257", st: "Sólido", p: "P7 / f", info: "Nombrado en honor al físico Enrico Fermi, pionero de la era nuclear. Es el elemento más pesado que puede formarse mediante bombardeo de neutrones sobre elementos más ligeros; solo se usa en investigación básica." },
+            { z: 101, s: "Md", n: "Mendelevio", c: "Actínido", m: "258", st: "Sólido", p: "P7 / f", info: "Nombrado en honor a Dmitri Mendeléyev, el creador de la tabla periódica. Fue el primer elemento en la historia en ser sintetizado e identificado literalmente átomo por átomo en un ciclotrón (1955)." },
+            { z: 102, s: "No", n: "Nobelio", c: "Actínido", m: "259", st: "Sólido", p: "P7 / f", info: "Elemento sintético radiactivo nombrado en honor a Alfred Nobel, inventor de la dinamita y fundador de los Premios Nobel. Solo se han producido pequeñas cantidades de átomos en laboratorios especializados." },
+            { z: 103, s: "Lr", n: "Lawrencio", c: "Actínido", m: "266", st: "Sólido", p: "P7 / d", info: "Es el último elemento de la serie de los actínidos, nombrado en honor a Ernest Lawrence, inventor del ciclotrón (el acelerador de partículas que permitió descubrir muchos de los elementos sintéticos)." },
+            { z: 104, s: "Rf", n: "Rutherfordio", c: "Metal de transición", m: "267", st: "Sólido", p: "P7 / d", info: "Primer elemento 'transactínido' o superpesado, nombrado en honor a Ernest Rutherford, padre de la física nuclear y descubridor del núcleo atómico. Su vida media es de apenas unos minutos." },
+            { z: 105, s: "Db", n: "Dubnio", c: "Metal de transición", m: "268", st: "Sólido", p: "P7 / d", info: "Elemento sintético superpesado que recibe su nombre de la ciudad rusa de Dubná, sede del Instituto Conjunto para la Investigación Nuclear, uno de los centros líderes mundiales en la creación de nuevos elementos." },
+            { z: 106, s: "Sg", n: "Seaborgio", c: "Metal de transición", m: "269", st: "Sólido", p: "P7 / d", info: "Nombrado en honor al químico estadounidense Glenn T. Seaborg, codescubridor del plutonio y de otros nueve elementos transuránicos. Fue el primer elemento nombrado en honor a una persona que aún estaba viva." },
+            { z: 107, s: "Bh", n: "Bohrio", c: "Metal de transición", m: "270", st: "Sólido", p: "P7 / d", info: "Elemento sintético superpesado nombrado en homenaje al físico danés Niels Bohr, cuyas teorías sobre la estructura del átomo y los niveles de energía de los electrones revolucionaron la química moderna." },
+            { z: 108, s: "Hs", n: "Hasio", c: "Metal de transición", m: "277", st: "Sólido", p: "P7 / d", info: "Sintetizado por primera vez en 1984 en Alemania. Su nombre proviene de 'Hassia', el nombre en latín del estado alemán de Hesse, donde se encuentra el centro de investigación de iones pesados GSI." },
+            { z: 109, s: "Mt", n: "Meitnerio", c: "Metal de transición", m: "278", st: "Sólido", p: "P7 / d", info: "Nombrado en honor a la física austríaca Lise Meitner, codescubridora de la fisión nuclear. Es el único elemento de la tabla nombrado específicamente en honor a una mujer científica de forma individual (junto a Marie Curie en el curio)." },
+            { z: 110, s: "Ds", n: "Darmstatio", c: "Metal de transición", m: "281", st: "Sólido", p: "P7 / d", info: "Creado en 1994 fusionando átomos de níquel y plomo, y nombrado por la ciudad alemana de Darmstadt. Es sumamente inestable: sus átomos se desintegran en cuestión de segundos tras ser creados." },
+            { z: 111, s: "Rg", n: "Roentgenio", c: "Metal de transición", m: "282", st: "Sólido", p: "P7 / d", info: "Ubicado en la misma columna que el cobre, la plata y el oro. Fue nombrado en honor al físico alemán Wilhelm Conrad Röntgen, quien descubrió los rayos X en 1895." },
+            { z: 112, s: "Cn", n: "Copernicio", c: "Metal de transición", m: "285", st: "Sólido", p: "P7 / d", info: "Nombrado en honor al astrónomo Nicolás Copérnico, quien formuló que la Tierra gira alrededor del Sol. Los estudios sugieren que es extremadamente volátil e incluso podría ser un gas o líquido a temperatura ambiente." },
+            { z: 113, s: "Nh", n: "Nihonio", c: "Metal del bloque p", m: "286", st: "Sólido", p: "P7 / p", info: "El primer elemento de la tabla periódica descubierto en Asia (en el instituto RIKEN de Japón). Su nombre proviene de 'Nihon', que significa Japón ('la tierra del sol naciente') en idioma japonés." },
+            { z: 114, s: "Fl", n: "Flerovio", c: "Metal del bloque p", m: "289", st: "Sólido", p: "P7 / p", info: "Elemento superpesado nombrado en honor al Laboratorio de Reacciones Nucleares Fliórov en Rusia y a su fundador, el físico Gueorgui Fliórov. Se investiga para explorar la llamada 'isla de estabilidad' nuclear." },
+            { z: 115, s: "Mc", n: "Moscovio", c: "Metal del bloque p", m: "290", st: "Sólido", p: "P7 / p", info: "Sintetizado en 2003 por un equipo conjunto de científicos rusos y estadounidenses, y nombrado oficialmente en 2016 en honor a la región de Moscú, donde se llevaron a cabo los experimentos." },
+            { z: 116, s: "Lv", n: "Livermorio", c: "Metal del bloque p", m: "293", st: "Sólido", p: "P7 / p", info: "Elemento sintético superpesado nombrado en honor al Laboratorio Nacional Lawrence Livermore de California (EE. UU.), que colaboró estrechamente en la síntesis de los elementos del séptimo periodo." },
+            { z: 117, s: "Ts", n: "Teneso", c: "Halógeno", m: "294", st: "Sólido", p: "P7 / p", info: "El segundo elemento más pesado conocido hasta hoy. Fue nombrado en honor al estado de Tennessee (EE. UU.), sede del Laboratorio Nacional de Oak Ridge, que produjo el berkelio necesario para crearlo." },
+            { z: 118, s: "Og", n: "Oganesón", c: "Gas noble", m: "294", st: "Sólido", p: "P7 / p", info: "El elemento con el mayor número atómico (118) sintetizado hasta la fecha, cerrando el séptimo periodo de la tabla. Fue nombrado en honor al físico nuclear Yuri Oganesián, pionero en el descubrimiento de elementos superpesados." }
+        ];
+
+        // Estado de la aplicación
+        let currentCategory = "Todos";
+        let searchQuery = "";
+        let quizMode = false;
+        let filteredElements = [...ELEMENTS];
+        let activeModalIndex = 0;
+
+        // Referencias DOM
+        const elementsGrid = document.getElementById("elementsGrid");
+        const emptyState = document.getElementById("emptyState");
+        const resultsCount = document.getElementById("resultsCount");
+        const categoryFilters = document.getElementById("categoryFilters");
+        const searchInput = document.getElementById("searchInput");
+        const quizModeBtn = document.getElementById("quizModeBtn");
+        const quizDot = document.getElementById("quizDot");
+        const randomBtn = document.getElementById("randomBtn");
+
+        // Referencias del Modal Pop-up
+        const elementModal = document.getElementById("elementModal");
+        const modalHeaderBg = document.getElementById("modalHeaderBg");
+        const modalCategoryBadge = document.getElementById("modalCategoryBadge");
+        const modalZSmall = document.getElementById("modalZSmall");
+        const modalSymbol = document.getElementById("modalSymbol");
+        const modalNumberLabel = document.getElementById("modalNumberLabel");
+        const modalName = document.getElementById("modalName");
+        const modalMass = document.getElementById("modalMass");
+        const modalWatermark = document.getElementById("modalWatermark");
+        const modalStatZ = document.getElementById("modalStatZ");
+        const modalStatState = document.getElementById("modalStatState");
+        const modalStatPeriod = document.getElementById("modalStatPeriod");
+        const modalInfo = document.getElementById("modalInfo");
+        const latinTipBox = document.getElementById("latinTipBox");
+        const latinTipText = document.getElementById("latinTipText");
+        const modalCounter = document.getElementById("modalCounter");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const prevElementBtn = document.getElementById("prevElementBtn");
+        const nextElementBtn = document.getElementById("nextElementBtn");
+
+        // Normalizar texto para búsquedas sin tildes
+        function normalizeStr(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        // Renderizar botones de categorías
+        function renderCategoryFilters() {
+            categoryFilters.innerHTML = "";
+            Object.keys(CATEGORIES).forEach(cat => {
+                const isSelected = cat === currentCategory;
+                const btn = document.createElement("button");
+                btn.className = `px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap border transition cursor-pointer ${
+                    isSelected 
+                        ? "bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/25" 
+                        : "bg-slate-800/80 text-slate-300 border-slate-700/70 hover:bg-slate-700/80"
+                }`;
+                btn.textContent = cat;
+                btn.addEventListener("click", () => {
+                    currentCategory = cat;
+                    renderCategoryFilters();
+                    applyFilters();
+                });
+                categoryFilters.appendChild(btn);
+            });
+        }
+
+        // Filtrar y renderizar cuadrícula de 118 tarjetas
+        function applyFilters() {
+            const q = normalizeStr(searchQuery.trim());
+            filteredElements = ELEMENTS.filter(el => {
+                const matchesCat = currentCategory === "Todos" || el.c === currentCategory;
+                if (!matchesCat) return false;
+                if (!q) return true;
+                return (
+                    normalizeStr(el.n).includes(q) ||
+                    normalizeStr(el.s).includes(q) ||
+                    String(el.z) === q
+                );
+            });
+
+            renderGrid();
+        }
+
+        // Renderizar todas las tarjetas visibles
+        function renderGrid() {
+            elementsGrid.innerHTML = "";
+
+            if (filteredElements.length === 0) {
+                emptyState.classList.remove("hidden");
+                resultsCount.textContent = "0 elementos encontrados";
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+            resultsCount.textContent = filteredElements.length === 118 
+                ? "Mostrando los 118 elementos (Haz clic en una tarjeta para abrir su pop-up)" 
+                : `Mostrando ${filteredElements.length} de 118 elementos`;
+
+            filteredElements.forEach((el, index) => {
+                const catStyle = CATEGORIES[el.c] || CATEGORIES["No metal"];
+                const hasLatinRoot = Boolean(LATIN_ROOTS[el.z]);
+
+                const card = document.createElement("button");
+                card.type = "button";
+                card.className = `group relative text-left rounded-2xl p-3.5 border transition-all duration-200 hover:-translate-y-1 hover:shadow-xl cursor-pointer flex flex-col justify-between min-h-[126px] ${catStyle.card}`;
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <span class="text-xs font-extrabold px-2 py-0.5 rounded-lg bg-slate-950/50 text-white/90">
+                            #${el.z}
+                        </span>
+                        ${hasLatinRoot ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30" title="Símbolo de raíz latina">Latín</span>` : `<span class="text-[11px] opacity-60 group-hover:opacity-100 transition">🔍 Pop-up</span>`}
+                    </div>
+
+                    <div class="my-2 text-center">
+                        <span class="text-3xl sm:text-4xl font-black tracking-tight text-white drop-shadow-sm">
+                            ${el.s}
+                        </span>
+                    </div>
+
+                    <div class="w-full text-center">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate ${quizMode ? 'blur-sm select-none group-hover:blur-none transition' : ''}">
+                            ${quizMode ? '¿Elemento?' : el.n}
+                        </div>
+                        <div class="text-[10px] opacity-75 truncate mt-0.5">
+                            ${el.c}
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener("click", () => openModal(index));
+                elementsGrid.appendChild(card);
+            });
+        }
+
+        // Abrir el Pop-up con los detalles del elemento seleccionado
+        function openModal(indexInFiltered) {
+            if (indexInFiltered < 0 || indexInFiltered >= filteredElements.length) return;
+            activeModalIndex = indexInFiltered;
+            const el = filteredElements[activeModalIndex];
+            const catStyle = CATEGORIES[el.c] || CATEGORIES["No metal"];
+
+            // Actualizar colores y textos del Pop-up
+            modalHeaderBg.className = `p-6 pb-8 relative overflow-hidden ${catStyle.header}`;
+            modalCategoryBadge.textContent = el.c;
+            modalZSmall.textContent = el.z;
+            modalSymbol.textContent = el.s;
+            modalNumberLabel.textContent = `Elemento #${el.z}`;
+            modalName.textContent = el.n;
+            modalMass.textContent = `Masa atómica: ${el.m} u`;
+            modalWatermark.textContent = el.s;
+
+            modalStatZ.textContent = el.z;
+            modalStatState.textContent = el.st;
+            modalStatPeriod.textContent = el.p;
+            modalInfo.textContent = el.info;
+
+            // Mostrar aviso si es uno de los 11 símbolos con raíz latina
+            if (LATIN_ROOTS[el.z]) {
+                latinTipBox.classList.remove("hidden");
+                latinTipText.textContent = " " + LATIN_ROOTS[el.z];
+            } else {
+                latinTipBox.classList.add("hidden");
+            }
+
+            // Actualizar contador e indicadores de botones Anterior / Siguiente
+            modalCounter.textContent = `${activeModalIndex + 1} de ${filteredElements.length}`;
+            prevElementBtn.disabled = activeModalIndex === 0;
+            nextElementBtn.disabled = activeModalIndex === filteredElements.length - 1;
+            prevElementBtn.classList.toggle("opacity-40", activeModalIndex === 0);
+            nextElementBtn.classList.toggle("opacity-40", activeModalIndex === filteredElements.length - 1);
+
+            elementModal.classList.remove("hidden");
+            elementModal.classList.add("flex");
+        }
+
+        function closeModal() {
+            elementModal.classList.add("hidden");
+            elementModal.classList.remove("flex");
+        }
+
+        // Eventos de usuario
+        searchInput.addEventListener("input", (e) => {
+            searchQuery = e.target.value;
+            applyFilters();
+        });
+
+        quizModeBtn.addEventListener("click", () => {
+            quizMode = !quizMode;
+            if (quizMode) {
+                quizDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400";
+                quizModeBtn.classList.add("border-emerald-500/50", "text-emerald-300");
+            } else {
+                quizDot.className = "w-2.5 h-2.5 rounded-full bg-slate-500";
+                quizModeBtn.classList.remove("border-emerald-500/50", "text-emerald-300");
+            }
+            renderGrid();
+        });
+
+        randomBtn.addEventListener("click", () => {
+            if (filteredElements.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * filteredElements.length);
+            openModal(randomIndex);
+        });
+
+        closeModalBtn.addEventListener("click", closeModal);
+
+        // Cerrar al hacer clic fuera de la tarjeta del Pop-up
+        elementModal.addEventListener("click", (e) => {
+            if (e.target === elementModal) {
+                closeModal();
+            }
+        });
+
+        prevElementBtn.addEventListener("click", () => {
+            if (activeModalIndex > 0) openModal(activeModalIndex - 1);
+        });
+
+        nextElementBtn.addEventListener("click", () => {
+            if (activeModalIndex < filteredElements.length - 1) openModal(activeModalIndex + 1);
+        });
+
+        // Navegación con el teclado (Flechas izquierda/derecha y Escape)
+        window.addEventListener("keydown", (e) => {
+            if (elementModal.classList.contains("hidden")) return;
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft" && activeModalIndex > 0) openModal(activeModalIndex - 1);
+            if (e.key === "ArrowRight" && activeModalIndex < filteredElements.length - 1) openModal(activeModalIndex + 1);
+        });
+
+        // Inicializar aplicación
+        renderCategoryFilters();
+        applyFilters();
+    </script>
+</body>
+</html>
