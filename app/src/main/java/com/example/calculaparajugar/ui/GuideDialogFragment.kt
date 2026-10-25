@@ -38,13 +38,18 @@ class GuideDialogFragment : DialogFragment() {
         ),
         GuideStep(
             R.drawable.ic_ui_lock,
-            "PIN y permisos",
-            "El PIN protege los cambios. En Ajustes puedes revisar permisos y cambiar tu PIN."
+            "Permisos",
+            "BrainWall usa superposición para mostrar preguntas, acceso de uso para detectar localmente la app visible y notificaciones para mantener la protección activa. Puedes revisar cada estado en Ajustes."
         ),
         GuideStep(
             R.drawable.ic_ui_success,
             "Preguntas",
-            "Para continuar usando la app monitoreada debes responder. Si sales, BrainWall vuelve a mostrar el desafio pendiente."
+            "Después de 15 segundos de gracia aparece una pregunta. Los temas que más cuestan se repiten con mayor frecuencia y puedes pausar las preguntas durante 30 minutos."
+        ),
+        GuideStep(
+            R.drawable.ic_ui_success,
+            "Progreso seguro",
+            "En Ajustes puedes guardar y restaurar niveles, racha, categorías y estadísticas. El PIN nunca se incluye en el respaldo."
         )
     )
 

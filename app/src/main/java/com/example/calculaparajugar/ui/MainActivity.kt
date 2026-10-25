@@ -1,8 +1,11 @@
 package com.example.calculaparajugar.ui
 
+import android.Manifest
 import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import android.provider.Settings
@@ -109,6 +112,11 @@ class MainActivity : AppCompatActivity() {
                 stopProtection()
             }
         }
+
+        binding.btnPauseService.setOnClickListener {
+            AppConfig.pauseFor(this, 30 * 60_000L)
+            Toast.makeText(this, "Preguntas pausadas durante 30 minutos", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun loadConfig() {
@@ -161,6 +169,7 @@ class MainActivity : AppCompatActivity() {
             binding.btnPeriodicTable,
             binding.btnStartService,
             binding.btnStopService,
+            binding.btnPauseService,
             binding.chipMath,
             binding.chipEnglish,
             binding.chipPython,
@@ -233,6 +242,13 @@ class MainActivity : AppCompatActivity() {
         }
         if (!hasUsageStatsPermission()) {
             Toast.makeText(this, "Concede permisos en Ajustes", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, SettingsActivity::class.java))
+            return false
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Toast.makeText(this, "Activa las notificaciones del servicio", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, SettingsActivity::class.java))
             return false
         }

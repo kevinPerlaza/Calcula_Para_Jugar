@@ -17,6 +17,7 @@ object AppConfig {
     private const val KEY_INTERVAL_MINUTES = "interval_minutes"
     private const val KEY_CATEGORIES = "enabled_categories"
     private const val KEY_GUIDE_SEEN = "guide_seen"
+    private const val KEY_PAUSED_UNTIL = "paused_until"
 
     private fun prefs(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -73,5 +74,15 @@ object AppConfig {
 
     fun setGuideSeen(context: Context, seen: Boolean) {
         prefs(context).edit().putBoolean(KEY_GUIDE_SEEN, seen).apply()
+    }
+
+    fun pauseFor(context: Context, durationMillis: Long) {
+        prefs(context).edit()
+            .putLong(KEY_PAUSED_UNTIL, System.currentTimeMillis() + durationMillis)
+            .apply()
+    }
+
+    fun isPaused(context: Context): Boolean {
+        return prefs(context).getLong(KEY_PAUSED_UNTIL, 0L) > System.currentTimeMillis()
     }
 }

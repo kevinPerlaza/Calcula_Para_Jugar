@@ -11,9 +11,6 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- La tabla periódica incluida usa estilos locales y fuentes web opcionales. -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <!-- Visibilidad limitada: solo apps que el usuario puede abrir desde el lanzador. -->
     <queries>
         <intent>

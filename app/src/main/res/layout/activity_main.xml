@@ -234,6 +234,7 @@
                         android:textSize="28sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
             </LinearLayout>
 
             <FrameLayout
@@ -597,6 +598,21 @@
                 app:strokeWidth="0dp" />
 
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPauseService"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_cyber_action_secondary"
+                android:text="Pausar preguntas 30 minutos"
+                android:textAllCaps="false"
+                android:textColor="#FFC6FFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="24dp"
+                app:strokeWidth="0dp" />
         </LinearLayout>
 
     </LinearLayout>

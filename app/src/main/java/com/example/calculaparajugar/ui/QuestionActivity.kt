@@ -18,6 +18,7 @@ import com.example.calculaparajugar.data.QuestionBank
 import com.example.calculaparajugar.databinding.ActivityQuestionBinding
 import com.example.calculaparajugar.service.MonitorService
 import com.example.calculaparajugar.util.AppConfig
+import com.example.calculaparajugar.util.AdaptiveQuestionManager
 import com.example.calculaparajugar.util.LessonManager
 import com.example.calculaparajugar.util.ProgressManager
 import com.example.calculaparajugar.util.QuestionGenerator
@@ -37,6 +38,7 @@ class QuestionActivity : AppCompatActivity() {
     private var currentCategory: QuestionGenerator.Category = QuestionGenerator.Category.MATH
     private var answerLocked: Boolean = false
     private var correctButtonIndex: Int = -1
+    private var currentBankQuestionId: String = ""
     private val optionLetters = listOf("A", "B", "C", "D")
     private val recentQuestionIds = mutableListOf<String>()
     private val uiHandler = Handler(Looper.getMainLooper())
@@ -80,6 +82,7 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun loadQuestion() {
         answerLocked = false
+        currentBankQuestionId = ""
         resetQuestionUi()
 
         // Leer categoría del intent (pasada por MonitorService), o aleatoria como fallback
@@ -112,6 +115,7 @@ class QuestionActivity : AppCompatActivity() {
         binding.tvQuestion.text = q.question
         correctAnswer = q.answer
         explanation = q.explanation
+        currentBankQuestionId = q.id
         rememberQuestion(q.id)
 
         // Siempre opciones múltiples desde el banco
@@ -171,6 +175,7 @@ class QuestionActivity : AppCompatActivity() {
         selectedIndex?.let { colorOption(it, true) }
 
         LessonManager.onCorrectAnswer(this, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, true)
         val result = ProgressManager.onCorrect(this)
         val progress = ProgressManager.getProgress(this)
 
@@ -203,6 +208,7 @@ class QuestionActivity : AppCompatActivity() {
         if (correctButtonIndex >= 0) colorOption(correctButtonIndex, true)
 
         LessonManager.onIncorrectAnswer(this, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, false)
         ProgressManager.onIncorrect(this)
         binding.tvFeedback.text = "Revisa la explicación"
         binding.tvFeedback.setTextColor(getColor(R.color.incorrect_red))
@@ -243,7 +249,7 @@ class QuestionActivity : AppCompatActivity() {
         for (pool in pools) {
             if (pool.isEmpty()) continue
             val fresh = pool.filter { it.id !in recentQuestionIds }
-            return fresh.randomOrNull() ?: pool.randomOrNull()
+            return AdaptiveQuestionManager.select(this, fresh.ifEmpty { pool })
         }
         return null
     }
