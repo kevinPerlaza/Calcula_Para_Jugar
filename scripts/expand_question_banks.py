@@ -24,15 +24,16 @@ def question(qid, subject, lesson, difficulty, text, answer, distractors, explan
 def append(filename, additions):
     path = ROOT / filename
     current = json.loads(path.read_text(encoding="utf-8"))
-    ids = {item["id"] for item in current}
-    current.extend(item for item in additions if item["id"] not in ids)
+    generated = {item["id"]: item for item in additions}
+    current = [generated.pop(item["id"], item) for item in current]
+    current.extend(generated.values())
     path.write_text(json.dumps(current, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def math_questions():
     result = []
-    for n in range(1, 51):
-        difficulty = (n - 1) // 10 + 1
+    for n in range(1, 101):
+        difficulty = min(5, (n - 1) // 10 + 1)
         lesson = (n - 1) % 8 + 1
         a = 8 + n * difficulty
         b = 2 + (n % 9)
@@ -77,7 +78,14 @@ ENGLISH = [
     ("bread", "pan"), ("school", "escuela"), ("book", "libro"), ("computer", "computadora"),
     ("learn", "aprender"), ("write", "escribir"), ("read", "leer"), ("speak", "hablar"),
     ("listen", "escuchar"), ("travel", "viajar"), ("healthy", "saludable"), ("quickly", "rápidamente"),
-    ("because", "porque"), ("although", "aunque")
+    ("because", "porque"), ("although", "aunque"), ("bridge", "puente"),
+    ("mountain", "montaña"), ("weather", "clima"), ("quiet", "tranquilo"),
+    ("strong", "fuerte"), ("careful", "cuidadoso"), ("choose", "elegir"),
+    ("build", "construir"), ("remember", "recordar"), ("forget", "olvidar"),
+    ("before", "antes"), ("after", "después"), ("between", "entre"),
+    ("always", "siempre"), ("never", "nunca"), ("sometimes", "a veces"),
+    ("enough", "suficiente"), ("different", "diferente"), ("improve", "mejorar"),
+    ("knowledge", "conocimiento")
 ]
 
 
@@ -104,7 +112,17 @@ PYTHON = [
     ("3 in [1, 2, 3]", "True"), ("not False", "True"), ("5 > 2 and 1 < 3", "True"),
     ("[x * 2 for x in range(3)]", "[0, 2, 4]"), ("len({'a': 1, 'b': 2})", "2"),
     ("'banana'.count('a')", "3"), ("int('12') + 1", "13"),
-    ("str(25) + '!'", "'25!'"), ("tuple([1, 2])", "(1, 2)")
+    ("str(25) + '!'", "'25!'"), ("tuple([1, 2])", "(1, 2)"),
+    ("set([1, 1, 2])", "{1, 2}"), ("len(set('aba'))", "2"),
+    ("any([False, True])", "True"), ("all([True, False])", "False"),
+    ("'Python'.lower()", "'python'"), ("'  hola  '.strip()", "'hola'"),
+    ("[1, 2, 3][::-1]", "[3, 2, 1]"), ("5 == 5.0", "True"),
+    ("isinstance(4, int)", "True"), ("divmod(10, 3)", "(3, 1)"),
+    ("pow(2, 4)", "16"), ("chr(65)", "'A'"), ("ord('A')", "65"),
+    ("dict(a=1)['a']", "1"), ("len(range(2, 10, 2))", "4"),
+    ("'abc'.startswith('a')", "True"), ("'abc'.replace('b', 'x')", "'axc'"),
+    ("3 if 5 > 2 else 0", "3"), ("sum(range(5))", "10"),
+    ("next(iter([7, 8]))", "7")
 ]
 
 
@@ -154,7 +172,27 @@ FACTS = [
     ("¿Qué planeta tiene los anillos más visibles?", "Saturno", ["Urano", "Júpiter", "Neptuno"]),
     ("¿Qué ciencia estudia los seres vivos?", "Biología", ["Geología", "Astronomía", "Meteorología"]),
     ("¿Cuál es la capital de Chile?", "Santiago", ["Valparaíso", "Concepción", "Antofagasta"]),
-    ("¿Qué aparato convierte energía eléctrica en movimiento?", "Motor eléctrico", ["Generador", "Batería", "Transformador"])
+    ("¿Qué aparato convierte energía eléctrica en movimiento?", "Motor eléctrico", ["Generador", "Batería", "Transformador"]),
+    ("¿Cuál es el desierto cálido más grande del mundo?", "Sahara", ["Atacama", "Gobi", "Kalahari"]),
+    ("¿Qué río atraviesa Egipto?", "Nilo", ["Amazonas", "Danubio", "Misisipi"]),
+    ("¿Qué planeta está más cerca del Sol?", "Mercurio", ["Venus", "Tierra", "Marte"]),
+    ("¿Cuál es la capital de Australia?", "Canberra", ["Sídney", "Melbourne", "Perth"]),
+    ("¿Qué órgano filtra la sangre y produce orina?", "Riñón", ["Páncreas", "Bazo", "Estómago"]),
+    ("¿Qué molécula transporta la información genética?", "ADN", ["ATP", "Glucosa", "Colágeno"]),
+    ("¿Qué escala se usa para medir la dureza de minerales?", "Mohs", ["Richter", "Beaufort", "Kelvin"]),
+    ("¿Qué fuerza mantiene los planetas en órbita?", "Gravedad", ["Fricción", "Magnetismo", "Flotación"]),
+    ("¿Qué animal puede regenerar brazos perdidos?", "Estrella de mar", ["Delfín", "Águila", "Pingüino"]),
+    ("¿Qué país alberga Machu Picchu?", "Perú", ["Bolivia", "Ecuador", "México"]),
+    ("¿Cuál es la capital de Canadá?", "Ottawa", ["Toronto", "Vancouver", "Montreal"]),
+    ("¿Qué instrumento mide la presión atmosférica?", "Barómetro", ["Higrómetro", "Sismógrafo", "Calorímetro"]),
+    ("¿Cómo se llama el cambio de sólido a gas?", "Sublimación", ["Fusión", "Condensación", "Deposición"]),
+    ("¿Qué parte de la planta realiza principalmente la fotosíntesis?", "Hojas", ["Raíces", "Flores", "Semillas"]),
+    ("¿Cuál es la capital de Argentina?", "Buenos Aires", ["Córdoba", "Rosario", "Mendoza"]),
+    ("¿Qué capa de la Tierra es líquida y rodea el núcleo interno?", "Núcleo externo", ["Manto superior", "Corteza", "Litosfera"]),
+    ("¿Qué tipo de sangre se considera donante universal de glóbulos rojos?", "O negativo", ["AB positivo", "A positivo", "B negativo"]),
+    ("¿Qué científico propuso la evolución por selección natural?", "Charles Darwin", ["Isaac Newton", "Nikola Tesla", "Niels Bohr"]),
+    ("¿Qué país tiene a Wellington como capital?", "Nueva Zelanda", ["Australia", "Irlanda", "Sudáfrica"]),
+    ("¿Qué energía almacena un objeto por su altura?", "Potencial gravitatoria", ["Cinética", "Térmica", "Sonora"])
 ]
 
 
@@ -194,7 +232,27 @@ PERIODIC = [
     ("¿Qué nombre recibe el grupo 2?", "Alcalinotérreos", ["Alcalinos", "Halógenos", "Calcógenos"]),
     ("¿Dónde se ubican lantánidos y actínidos?", "Bloque f", ["Bloque s", "Bloque p", "Bloque d"]),
     ("¿Qué elemento tiene símbolo Au?", "Oro", ["Plata", "Cobre", "Aluminio"]),
-    ("¿Qué elemento tiene símbolo Ag?", "Plata", ["Oro", "Argón", "Aluminio"])
+    ("¿Qué elemento tiene símbolo Ag?", "Plata", ["Oro", "Argón", "Aluminio"]),
+    ("¿Qué elemento tiene símbolo Pb?", "Plomo", ["Paladio", "Fósforo", "Platino"]),
+    ("¿Qué elemento tiene símbolo Sn?", "Estaño", ["Antimonio", "Estroncio", "Sodio"]),
+    ("¿Qué elemento se utiliza para desinfectar agua de piscinas?", "Cloro", ["Neón", "Litio", "Argón"]),
+    ("¿Qué elemento da color verde a muchas esmeraldas?", "Cromo", ["Calcio", "Sodio", "Helio"]),
+    ("¿Qué gas constituye la mayor parte de la atmósfera terrestre?", "Nitrógeno", ["Oxígeno", "Argón", "Dióxido de carbono"]),
+    ("¿Qué elemento forma aproximadamente una quinta parte del aire?", "Oxígeno", ["Nitrógeno", "Hidrógeno", "Neón"]),
+    ("¿Qué elemento tiene número atómico 26?", "Hierro", ["Cobalto", "Níquel", "Manganeso"]),
+    ("¿Qué elemento tiene número atómico 79?", "Oro", ["Plata", "Platino", "Mercurio"]),
+    ("¿Qué elemento se usa en filamentos por su alto punto de fusión?", "Wolframio", ["Estaño", "Sodio", "Galio"]),
+    ("¿Qué elemento se combina con cloro para formar sal común?", "Sodio", ["Potasio", "Calcio", "Magnesio"]),
+    ("¿Cuál es el elemento natural más pesado presente en cantidades apreciables?", "Uranio", ["Osmio", "Plomo", "Radio"]),
+    ("¿Qué elemento tiene el símbolo Ca?", "Calcio", ["Carbono", "Cadmio", "Cobalto"]),
+    ("¿Qué elemento es importante para huesos y dientes?", "Calcio", ["Argón", "Bromo", "Neón"]),
+    ("¿Qué elemento tiene símbolo Cu?", "Cobre", ["Curio", "Calcio", "Carbono"]),
+    ("¿Qué metal se usa mucho en cables eléctricos?", "Cobre", ["Plomo", "Titanio", "Uranio"]),
+    ("¿Qué elemento tiene símbolo Mg?", "Magnesio", ["Manganeso", "Mercurio", "Molibdeno"]),
+    ("¿Qué elemento se encuentra en la clorofila?", "Magnesio", ["Hierro", "Oro", "Plata"]),
+    ("¿Qué elemento tiene símbolo P?", "Fósforo", ["Potasio", "Plomo", "Platino"]),
+    ("¿Qué elemento tiene símbolo S?", "Azufre", ["Silicio", "Sodio", "Escandio"]),
+    ("¿Qué propiedad comparten los elementos de un mismo grupo?", "Electrones de valencia similares", ["Igual masa atómica", "Igual número de neutrones", "El mismo estado físico"])
 ]
 
 

@@ -31,6 +31,10 @@ import com.google.android.material.button.MaterialButton
  */
 class QuestionActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_PRACTICE_MODE = "practice_mode"
+    }
+
     private lateinit var binding: ActivityQuestionBinding
     private var correctAnswer: String = ""
     private var explanation: String = ""
@@ -42,6 +46,7 @@ class QuestionActivity : AppCompatActivity() {
     private val optionLetters = listOf("A", "B", "C", "D")
     private val recentQuestionIds = mutableListOf<String>()
     private val uiHandler = Handler(Looper.getMainLooper())
+    private var isPracticeMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,11 +58,16 @@ class QuestionActivity : AppCompatActivity() {
         binding = ActivityQuestionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.root.applySystemBarInsets()
+        isPracticeMode = intent.getBooleanExtra(EXTRA_PRACTICE_MODE, false)
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() = Unit
+            override fun handleOnBackPressed() {
+                if (isPracticeMode) finish()
+            }
         })
 
-        MonitorService.isQuestionVisible = true
+        if (!isPracticeMode) MonitorService.isQuestionVisible = true
+        binding.btnClosePractice.visibility = if (isPracticeMode) View.VISIBLE else View.GONE
+        binding.btnClosePractice.setOnClickListener { finish() }
         setupMicroInteractions()
         binding.questionSheet.playSheetEnter()
         binding.imgCategoryIcon.playSoftPopEnter()
@@ -87,7 +97,9 @@ class QuestionActivity : AppCompatActivity() {
 
         // Leer categoría del intent (pasada por MonitorService), o aleatoria como fallback
         val categoryName = intent.getStringExtra("category")
-        currentCategory = if (categoryName != null) {
+        currentCategory = if (isPracticeMode) {
+            AdaptiveQuestionManager.selectCategory(this, AppConfig.getEnabledCategories(this))
+        } else if (categoryName != null) {
             try { QuestionGenerator.Category.valueOf(categoryName) }
             catch (e: IllegalArgumentException) { AppConfig.getEnabledCategories(this).random() }
         } else {
@@ -111,7 +123,7 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun showBankQuestion(q: QuestionBank.Question) {
         binding.imgCategoryIcon.setImageResource(iconForCategory(currentCategory))
-        binding.tvCategoryName.text = "PREGUNTA · ${currentCategory.displayName}"
+        binding.tvCategoryName.text = "${if (isPracticeMode) "PRÁCTICA" else "PREGUNTA"} · ${currentCategory.displayName}"
         binding.tvQuestion.text = q.question
         correctAnswer = q.answer
         explanation = q.explanation
@@ -129,7 +141,7 @@ class QuestionActivity : AppCompatActivity() {
     private fun showLessonQuestion() {
         val lesson = LessonManager.getCurrentLesson(this, currentCategory)
         binding.imgCategoryIcon.setImageResource(iconForCategory(lesson.category))
-        binding.tvCategoryName.text = "PREGUNTA · ${lesson.category.displayName}"
+        binding.tvCategoryName.text = "${if (isPracticeMode) "PRÁCTICA" else "PREGUNTA"} · ${lesson.category.displayName}"
         binding.tvQuestion.text = lesson.questionText
         correctAnswer = lesson.correctAnswer
         explanation = ""
@@ -188,7 +200,7 @@ class QuestionActivity : AppCompatActivity() {
         binding.tvFeedback.setTextColor(getColor(R.color.correct_green))
         binding.tvFeedback.visibility = View.VISIBLE
 
-        MonitorService.markChallengeResolved()
+        if (!isPracticeMode) MonitorService.markChallengeResolved()
 
         uiHandler.postDelayed({
             if (result.leveledUp) {
@@ -197,7 +209,7 @@ class QuestionActivity : AppCompatActivity() {
                     putExtra(LevelUpActivity.EXTRA_EVOLVED, result.mascotEvolved)
                 })
             }
-            finish()
+            if (isPracticeMode) loadQuestion() else finish()
         }, 650)
     }
 
@@ -369,7 +381,7 @@ class QuestionActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         // Si el usuario intenta escapar (recientes, home, etc.), volver al frente
-        if (MonitorService.isQuestionVisible && canStayInFront()) {
+        if (!isPracticeMode && MonitorService.isQuestionVisible && canStayInFront()) {
             val relaunch = Intent(this, QuestionActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -381,7 +393,7 @@ class QuestionActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        MonitorService.isQuestionVisible = true
+        if (!isPracticeMode) MonitorService.isQuestionVisible = true
     }
 
     private fun canStayInFront(): Boolean {
@@ -392,7 +404,7 @@ class QuestionActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        if (!isFinishing) {
+        if (!isPracticeMode && !isFinishing) {
             MonitorService.isQuestionVisible = false
         }
     }
@@ -400,6 +412,6 @@ class QuestionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         uiHandler.removeCallbacksAndMessages(null)
-        MonitorService.isQuestionVisible = false
+        if (!isPracticeMode) MonitorService.isQuestionVisible = false
     }
 }

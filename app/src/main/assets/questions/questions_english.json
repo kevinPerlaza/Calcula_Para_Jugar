@@ -6506,7 +6506,7 @@
     "question": "¿Qué significa ‘city’ en español?",
     "options": [
       "ciudad",
-      "manzana",
+      "puente",
       "hablar",
       "escuela"
     ],
@@ -6529,7 +6529,7 @@
     "question": "¿Qué significa ‘country’ en español?",
     "options": [
       "escuchar",
-      "ventana",
+      "montaña",
       "libro",
       "país"
     ],
@@ -6552,7 +6552,7 @@
     "question": "¿Qué significa ‘water’ en español?",
     "options": [
       "computadora",
-      "río",
+      "clima",
       "agua",
       "viajar"
     ],
@@ -6574,7 +6574,7 @@
     "difficulty": 3,
     "question": "¿Qué significa ‘bread’ en español?",
     "options": [
-      "nube",
+      "tranquilo",
       "pan",
       "aprender",
       "saludable"
@@ -6600,7 +6600,7 @@
       "escribir",
       "escuela",
       "rápidamente",
-      "bosque"
+      "fuerte"
     ],
     "answer": "escuela",
     "explanation": "‘school’ se traduce como ‘escuela’.",
@@ -6623,7 +6623,7 @@
       "leer",
       "libro",
       "porque",
-      "cocina"
+      "cuidadoso"
     ],
     "answer": "libro",
     "explanation": "‘book’ se traduce como ‘libro’.",
@@ -6646,7 +6646,7 @@
       "aunque",
       "hablar",
       "computadora",
-      "profesor"
+      "elegir"
     ],
     "answer": "computadora",
     "explanation": "‘computer’ se traduce como ‘computadora’.",
@@ -6667,8 +6667,8 @@
     "question": "¿Qué significa ‘learn’ en español?",
     "options": [
       "escuchar",
-      "manzana",
-      "pregunta",
+      "puente",
+      "construir",
       "aprender"
     ],
     "answer": "aprender",
@@ -6689,10 +6689,10 @@
     "difficulty": 4,
     "question": "¿Qué significa ‘write’ en español?",
     "options": [
-      "respuesta",
+      "recordar",
       "viajar",
       "escribir",
-      "ventana"
+      "montaña"
     ],
     "answer": "escribir",
     "explanation": "‘write’ se traduce como ‘escribir’.",
@@ -6713,9 +6713,9 @@
     "question": "¿Qué significa ‘read’ en español?",
     "options": [
       "saludable",
-      "mañana",
+      "olvidar",
       "leer",
-      "río"
+      "clima"
     ],
     "answer": "leer",
     "explanation": "‘read’ se traduce como ‘leer’.",
@@ -6736,8 +6736,8 @@
     "question": "¿Qué significa ‘speak’ en español?",
     "options": [
       "rápidamente",
-      "noche",
-      "nube",
+      "antes",
+      "tranquilo",
       "hablar"
     ],
     "answer": "hablar",
@@ -6758,8 +6758,8 @@
     "difficulty": 5,
     "question": "¿Qué significa ‘listen’ en español?",
     "options": [
-      "bosque",
-      "amigo",
+      "fuerte",
+      "después",
       "porque",
       "escuchar"
     ],
@@ -6781,9 +6781,9 @@
     "difficulty": 5,
     "question": "¿Qué significa ‘travel’ en español?",
     "options": [
-      "cocina",
+      "cuidadoso",
       "aunque",
-      "familia",
+      "entre",
       "viajar"
     ],
     "answer": "viajar",
@@ -6805,9 +6805,9 @@
     "question": "¿Qué significa ‘healthy’ en español?",
     "options": [
       "saludable",
-      "ciudad",
-      "profesor",
-      "manzana"
+      "siempre",
+      "elegir",
+      "puente"
     ],
     "answer": "saludable",
     "explanation": "‘healthy’ se traduce como ‘saludable’.",
@@ -6827,10 +6827,10 @@
     "difficulty": 5,
     "question": "¿Qué significa ‘quickly’ en español?",
     "options": [
-      "pregunta",
+      "construir",
       "rápidamente",
-      "ventana",
-      "país"
+      "montaña",
+      "nunca"
     ],
     "answer": "rápidamente",
     "explanation": "‘quickly’ se traduce como ‘rápidamente’.",
@@ -6850,9 +6850,9 @@
     "difficulty": 5,
     "question": "¿Qué significa ‘because’ en español?",
     "options": [
-      "río",
-      "agua",
-      "respuesta",
+      "clima",
+      "a veces",
+      "recordar",
       "porque"
     ],
     "answer": "porque",
@@ -6873,9 +6873,9 @@
     "difficulty": 5,
     "question": "¿Qué significa ‘although’ en español?",
     "options": [
-      "mañana",
-      "nube",
-      "pan",
+      "olvidar",
+      "tranquilo",
+      "suficiente",
       "aunque"
     ],
     "answer": "aunque",
@@ -6883,6 +6883,466 @@
     "whyCorrect": "‘although’ se traduce como ‘aunque’.",
     "commonError": "Elegir una opción parecida sin comprobar el concepto.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es aunque. ‘although’ se traduce como ‘aunque’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-031",
+    "subject": "Inglés",
+    "lesson": 1,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘bridge’ en español?",
+    "options": [
+      "fuerte",
+      "puente",
+      "antes",
+      "diferente"
+    ],
+    "answer": "puente",
+    "explanation": "‘bridge’ se traduce como ‘puente’.",
+    "whyCorrect": "‘bridge’ se traduce como ‘puente’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es puente. ‘bridge’ se traduce como ‘puente’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-032",
+    "subject": "Inglés",
+    "lesson": 2,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘mountain’ en español?",
+    "options": [
+      "montaña",
+      "mejorar",
+      "después",
+      "cuidadoso"
+    ],
+    "answer": "montaña",
+    "explanation": "‘mountain’ se traduce como ‘montaña’.",
+    "whyCorrect": "‘mountain’ se traduce como ‘montaña’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es montaña. ‘mountain’ se traduce como ‘montaña’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-033",
+    "subject": "Inglés",
+    "lesson": 3,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘weather’ en español?",
+    "options": [
+      "conocimiento",
+      "clima",
+      "entre",
+      "elegir"
+    ],
+    "answer": "clima",
+    "explanation": "‘weather’ se traduce como ‘clima’.",
+    "whyCorrect": "‘weather’ se traduce como ‘clima’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es clima. ‘weather’ se traduce como ‘clima’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-034",
+    "subject": "Inglés",
+    "lesson": 4,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘quiet’ en español?",
+    "options": [
+      "tranquilo",
+      "manzana",
+      "construir",
+      "siempre"
+    ],
+    "answer": "tranquilo",
+    "explanation": "‘quiet’ se traduce como ‘tranquilo’.",
+    "whyCorrect": "‘quiet’ se traduce como ‘tranquilo’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es tranquilo. ‘quiet’ se traduce como ‘tranquilo’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-035",
+    "subject": "Inglés",
+    "lesson": 5,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘strong’ en español?",
+    "options": [
+      "nunca",
+      "ventana",
+      "recordar",
+      "fuerte"
+    ],
+    "answer": "fuerte",
+    "explanation": "‘strong’ se traduce como ‘fuerte’.",
+    "whyCorrect": "‘strong’ se traduce como ‘fuerte’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es fuerte. ‘strong’ se traduce como ‘fuerte’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-036",
+    "subject": "Inglés",
+    "lesson": 6,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘careful’ en español?",
+    "options": [
+      "a veces",
+      "río",
+      "cuidadoso",
+      "olvidar"
+    ],
+    "answer": "cuidadoso",
+    "explanation": "‘careful’ se traduce como ‘cuidadoso’.",
+    "whyCorrect": "‘careful’ se traduce como ‘cuidadoso’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es cuidadoso. ‘careful’ se traduce como ‘cuidadoso’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-037",
+    "subject": "Inglés",
+    "lesson": 7,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘choose’ en español?",
+    "options": [
+      "nube",
+      "elegir",
+      "antes",
+      "suficiente"
+    ],
+    "answer": "elegir",
+    "explanation": "‘choose’ se traduce como ‘elegir’.",
+    "whyCorrect": "‘choose’ se traduce como ‘elegir’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es elegir. ‘choose’ se traduce como ‘elegir’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-038",
+    "subject": "Inglés",
+    "lesson": 8,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘build’ en español?",
+    "options": [
+      "diferente",
+      "construir",
+      "después",
+      "bosque"
+    ],
+    "answer": "construir",
+    "explanation": "‘build’ se traduce como ‘construir’.",
+    "whyCorrect": "‘build’ se traduce como ‘construir’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es construir. ‘build’ se traduce como ‘construir’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-039",
+    "subject": "Inglés",
+    "lesson": 9,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘remember’ en español?",
+    "options": [
+      "mejorar",
+      "recordar",
+      "cocina",
+      "entre"
+    ],
+    "answer": "recordar",
+    "explanation": "‘remember’ se traduce como ‘recordar’.",
+    "whyCorrect": "‘remember’ se traduce como ‘recordar’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es recordar. ‘remember’ se traduce como ‘recordar’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-040",
+    "subject": "Inglés",
+    "lesson": 10,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘forget’ en español?",
+    "options": [
+      "siempre",
+      "olvidar",
+      "profesor",
+      "conocimiento"
+    ],
+    "answer": "olvidar",
+    "explanation": "‘forget’ se traduce como ‘olvidar’.",
+    "whyCorrect": "‘forget’ se traduce como ‘olvidar’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es olvidar. ‘forget’ se traduce como ‘olvidar’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-041",
+    "subject": "Inglés",
+    "lesson": 1,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘before’ en español?",
+    "options": [
+      "nunca",
+      "pregunta",
+      "antes",
+      "manzana"
+    ],
+    "answer": "antes",
+    "explanation": "‘before’ se traduce como ‘antes’.",
+    "whyCorrect": "‘before’ se traduce como ‘antes’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es antes. ‘before’ se traduce como ‘antes’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-042",
+    "subject": "Inglés",
+    "lesson": 2,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘after’ en español?",
+    "options": [
+      "respuesta",
+      "a veces",
+      "ventana",
+      "después"
+    ],
+    "answer": "después",
+    "explanation": "‘after’ se traduce como ‘después’.",
+    "whyCorrect": "‘after’ se traduce como ‘después’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es después. ‘after’ se traduce como ‘después’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-043",
+    "subject": "Inglés",
+    "lesson": 3,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘between’ en español?",
+    "options": [
+      "suficiente",
+      "entre",
+      "mañana",
+      "río"
+    ],
+    "answer": "entre",
+    "explanation": "‘between’ se traduce como ‘entre’.",
+    "whyCorrect": "‘between’ se traduce como ‘entre’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es entre. ‘between’ se traduce como ‘entre’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-044",
+    "subject": "Inglés",
+    "lesson": 4,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘always’ en español?",
+    "options": [
+      "siempre",
+      "nube",
+      "diferente",
+      "noche"
+    ],
+    "answer": "siempre",
+    "explanation": "‘always’ se traduce como ‘siempre’.",
+    "whyCorrect": "‘always’ se traduce como ‘siempre’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es siempre. ‘always’ se traduce como ‘siempre’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-045",
+    "subject": "Inglés",
+    "lesson": 5,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘never’ en español?",
+    "options": [
+      "nunca",
+      "amigo",
+      "bosque",
+      "mejorar"
+    ],
+    "answer": "nunca",
+    "explanation": "‘never’ se traduce como ‘nunca’.",
+    "whyCorrect": "‘never’ se traduce como ‘nunca’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es nunca. ‘never’ se traduce como ‘nunca’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-046",
+    "subject": "Inglés",
+    "lesson": 6,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘sometimes’ en español?",
+    "options": [
+      "a veces",
+      "cocina",
+      "conocimiento",
+      "familia"
+    ],
+    "answer": "a veces",
+    "explanation": "‘sometimes’ se traduce como ‘a veces’.",
+    "whyCorrect": "‘sometimes’ se traduce como ‘a veces’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es a veces. ‘sometimes’ se traduce como ‘a veces’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-047",
+    "subject": "Inglés",
+    "lesson": 7,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘enough’ en español?",
+    "options": [
+      "suficiente",
+      "profesor",
+      "manzana",
+      "ciudad"
+    ],
+    "answer": "suficiente",
+    "explanation": "‘enough’ se traduce como ‘suficiente’.",
+    "whyCorrect": "‘enough’ se traduce como ‘suficiente’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es suficiente. ‘enough’ se traduce como ‘suficiente’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-048",
+    "subject": "Inglés",
+    "lesson": 8,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘different’ en español?",
+    "options": [
+      "país",
+      "diferente",
+      "pregunta",
+      "ventana"
+    ],
+    "answer": "diferente",
+    "explanation": "‘different’ se traduce como ‘diferente’.",
+    "whyCorrect": "‘different’ se traduce como ‘diferente’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es diferente. ‘different’ se traduce como ‘diferente’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-049",
+    "subject": "Inglés",
+    "lesson": 9,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘improve’ en español?",
+    "options": [
+      "agua",
+      "respuesta",
+      "mejorar",
+      "río"
+    ],
+    "answer": "mejorar",
+    "explanation": "‘improve’ se traduce como ‘mejorar’.",
+    "whyCorrect": "‘improve’ se traduce como ‘mejorar’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es mejorar. ‘improve’ se traduce como ‘mejorar’.",
+    "jumpEligible": "Sí",
+    "poolJumpL1L2": "Sí",
+    "poolJumpL2L3": "Sí",
+    "poolJumpL3L4": "Sí",
+    "poolJumpL4L5": "Sí"
+  },
+  {
+    "id": "ENG-X-050",
+    "subject": "Inglés",
+    "lesson": 10,
+    "difficulty": 5,
+    "question": "¿Qué significa ‘knowledge’ en español?",
+    "options": [
+      "nube",
+      "mañana",
+      "pan",
+      "conocimiento"
+    ],
+    "answer": "conocimiento",
+    "explanation": "‘knowledge’ se traduce como ‘conocimiento’.",
+    "whyCorrect": "‘knowledge’ se traduce como ‘conocimiento’.",
+    "commonError": "Elegir una opción parecida sin comprobar el concepto.",
+    "feedbackWrong": "Incorrecto. La respuesta correcta es conocimiento. ‘knowledge’ se traduce como ‘conocimiento’.",
     "jumpEligible": "Sí",
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",

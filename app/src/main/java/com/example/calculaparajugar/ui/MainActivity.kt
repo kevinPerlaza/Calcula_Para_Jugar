@@ -57,6 +57,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PeriodicTableActivity::class.java))
         }
 
+        binding.btnPractice.setOnClickListener {
+            startActivity(Intent(this, QuestionActivity::class.java).apply {
+                putExtra(QuestionActivity.EXTRA_PRACTICE_MODE, true)
+            })
+        }
+
+        binding.btnDailyGoal.setOnClickListener {
+            AppConfig.cycleDailyGoal(this)
+            updateProgress()
+        }
+
         binding.sliderInterval.addOnChangeListener { _, value, fromUser ->
             if (fromUser) {
                 val min = value.toInt()
@@ -143,6 +154,18 @@ class MainActivity : AppCompatActivity() {
         binding.tvTodayCorrect.text = "${p.todayCorrect}"
         binding.tvTodayIncorrect.text = "${p.todayIncorrect}"
         binding.progressLevel.progress = (p.levelProgress * 100).toInt()
+        val dailyGoal = AppConfig.getDailyGoal(this)
+        val completed = p.todayCorrect.coerceAtMost(dailyGoal)
+        binding.tvDailyGoal.text = "$completed de $dailyGoal preguntas"
+        binding.progressDailyGoal.max = dailyGoal
+        binding.progressDailyGoal.progress = completed
+        binding.btnDailyGoal.text = "Meta: $dailyGoal"
+        binding.tvAccuracy.text = if (p.todayCorrect + p.todayIncorrect == 0) {
+            "Precisión de hoy: sin respuestas"
+        } else {
+            val accuracy = p.todayCorrect * 100 / (p.todayCorrect + p.todayIncorrect)
+            "Precisión de hoy: $accuracy%"
+        }
 
         // Actualizar mascota header
         val mascot = MascotManager.getStageForLevel(p.level)
@@ -167,6 +190,8 @@ class MainActivity : AppCompatActivity() {
             binding.btnSettings,
             binding.btnSelectApps,
             binding.btnPeriodicTable,
+            binding.btnPractice,
+            binding.btnDailyGoal,
             binding.btnStartService,
             binding.btnStopService,
             binding.btnPauseService,
