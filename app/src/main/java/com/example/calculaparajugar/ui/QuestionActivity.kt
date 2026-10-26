@@ -175,7 +175,7 @@ class QuestionActivity : AppCompatActivity() {
         selectedIndex?.let { colorOption(it, true) }
 
         LessonManager.onCorrectAnswer(this, currentCategory)
-        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, true)
+        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, true, currentCategory)
         val result = ProgressManager.onCorrect(this)
         val progress = ProgressManager.getProgress(this)
 
@@ -208,7 +208,7 @@ class QuestionActivity : AppCompatActivity() {
         if (correctButtonIndex >= 0) colorOption(correctButtonIndex, true)
 
         LessonManager.onIncorrectAnswer(this, currentCategory)
-        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, false)
+        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, false, currentCategory)
         ProgressManager.onIncorrect(this)
         binding.tvFeedback.text = "Revisa la explicación"
         binding.tvFeedback.setTextColor(getColor(R.color.incorrect_red))
@@ -239,10 +239,11 @@ class QuestionActivity : AppCompatActivity() {
         lesson: Int,
         userLevel: Int
     ): QuestionBank.Question? {
-        val diff = QuestionBank.difficultyForUserLevel(userLevel)
+        val diff = AdaptiveQuestionManager.difficultyFor(this, currentCategory, userLevel)
         val pools = listOf(
             QuestionBank.getQuestions(subject, lesson, diff),
             QuestionBank.getQuestions(subject, lesson, diff - 1),
+            QuestionBank.getQuestions(subject, lesson, diff + 1),
             QuestionBank.getQuestions(subject, lesson)
         )
 

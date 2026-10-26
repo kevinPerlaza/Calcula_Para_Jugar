@@ -26,6 +26,7 @@ import com.example.calculaparajugar.ui.LessonActivity
 import com.example.calculaparajugar.ui.MainActivity
 import com.example.calculaparajugar.ui.QuestionActivity
 import com.example.calculaparajugar.util.AppConfig
+import com.example.calculaparajugar.util.AdaptiveQuestionManager
 import com.example.calculaparajugar.util.LessonManager
 
 /**
@@ -352,7 +353,7 @@ class MonitorService : Service() {
 
         // Decidir si mostrar LECCIÓN o PREGUNTA basado en el estado del LessonManager
         val categories = AppConfig.getEnabledCategories(this)
-        val category = categories.random()
+        val category = AdaptiveQuestionManager.selectCategory(this, categories)
         val mode = LessonManager.getNextShowMode(this, category)
 
         val intent = if (mode == LessonManager.ShowMode.LESSON) {
