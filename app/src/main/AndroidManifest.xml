@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Visibilidad limitada: solo apps que el usuario puede abrir desde el lanzador. -->
     <queries>
         <intent>
@@ -61,6 +62,9 @@
             android:name=".ui.SettingsActivity"
             android:theme="@style/Theme.CalculaParaJugar" />
 
+        <activity android:name=".ui.LearningActivity" android:theme="@style/Theme.CalculaParaJugar" />
+        <activity android:name=".ui.StatsActivity" android:theme="@style/Theme.CalculaParaJugar" />
+
         <!-- Explorador de los 118 elementos -->
         <activity
             android:name=".ui.PeriodicTableActivity"
@@ -92,6 +96,15 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Monitorea localmente la app en uso para mostrar ejercicios educativos configurados por el usuario." />
         </service>
+
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

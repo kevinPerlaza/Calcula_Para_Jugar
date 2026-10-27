@@ -3489,7 +3489,7 @@
     "answerIndex": 1,
     "correctLetter": "B",
     "explanation": "loot se asocia con: son recompensas u objetos obtenidos en el juego.",
-    "hint": "botín",
+    "hint": "Recuerda la idea principal de videojuegos y cultura gamer.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es B — son recompensas u objetos obtenidos en el juego. loot se asocia con: son recompensas u objetos obtenidos en el juego. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Bajar temporalmente a dificultad 3 del mismo tema y volver con una variante.",
     "correctAnswerUi": "B — son recompensas u objetos obtenidos en el juego",
     "whyCorrect": "loot se asocia con: son recompensas u objetos obtenidos en el juego.",
@@ -3520,7 +3520,7 @@
     "answerIndex": 3,
     "correctLetter": "D",
     "explanation": "La pista describe a loot.",
-    "hint": "botín",
+    "hint": "Recuerda la idea principal de videojuegos y cultura gamer.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es D — loot. La pista describe a loot. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Bajar temporalmente a dificultad 3 del mismo tema y volver con una variante.",
     "correctAnswerUi": "D — loot",
     "whyCorrect": "La pista describe a loot.",
@@ -4853,7 +4853,7 @@
     "answerIndex": 1,
     "correctLetter": "B",
     "explanation": "el avión se asocia con: permitió vuelos controlados más pesados que el aire.",
-    "hint": "Wright",
+    "hint": "Recuerda la idea principal de inventos y objetos cotidianos.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es B — permitió vuelos controlados más pesados que el aire. el avión se asocia con: permitió vuelos controlados más pesados que el aire. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Marcar laguna avanzada, recomendar repaso guiado y reintentar después con espaciado.",
     "correctAnswerUi": "B — permitió vuelos controlados más pesados que el aire",
     "whyCorrect": "el avión se asocia con: permitió vuelos controlados más pesados que el aire.",
@@ -4884,7 +4884,7 @@
     "answerIndex": 1,
     "correctLetter": "B",
     "explanation": "La pista describe a el avión.",
-    "hint": "Wright",
+    "hint": "Recuerda la idea principal de inventos y objetos cotidianos.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es B — el avión. La pista describe a el avión. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Marcar laguna avanzada, recomendar repaso guiado y reintentar después con espaciado.",
     "correctAnswerUi": "B — el avión",
     "whyCorrect": "La pista describe a el avión.",
@@ -5969,7 +5969,7 @@
     "answerIndex": 2,
     "correctLetter": "C",
     "explanation": "las abejas se asocia con: pueden comunicar información mediante danzas.",
-    "hint": "colmena",
+    "hint": "Recuerda la idea principal de animales raros.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es C — pueden comunicar información mediante danzas. las abejas se asocia con: pueden comunicar información mediante danzas. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Bajar temporalmente a dificultad 3 del mismo tema y volver con una variante.",
     "correctAnswerUi": "C — pueden comunicar información mediante danzas",
     "whyCorrect": "las abejas se asocia con: pueden comunicar información mediante danzas.",
@@ -6000,7 +6000,7 @@
     "answerIndex": 0,
     "correctLetter": "A",
     "explanation": "La pista describe a las abejas.",
-    "hint": "colmena",
+    "hint": "Recuerda la idea principal de animales raros.",
     "feedbackWrong": "Incorrecto. La respuesta correcta es A — las abejas. La pista describe a las abejas. Error común: Responder por intuición, mito popular o memoria vaga sin revisar el dato exacto. Acción: Bajar temporalmente a dificultad 3 del mismo tema y volver con una variante.",
     "correctAnswerUi": "A — las abejas",
     "whyCorrect": "La pista describe a las abejas.",
@@ -6220,7 +6220,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Júpiter"
   },
   {
     "id": "CUR-X-002",
@@ -6243,7 +6251,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Dióxido de carbono"
   },
   {
     "id": "CUR-X-003",
@@ -6266,7 +6282,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — La piel"
   },
   {
     "id": "CUR-X-004",
@@ -6289,7 +6313,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — 7"
   },
   {
     "id": "CUR-X-005",
@@ -6312,7 +6344,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Pacífico"
   },
   {
     "id": "CUR-X-006",
@@ -6335,7 +6375,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Sismógrafo"
   },
   {
     "id": "CUR-X-007",
@@ -6358,7 +6406,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Vitamina D"
   },
   {
     "id": "CUR-X-008",
@@ -6381,7 +6437,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — La Luna"
   },
   {
     "id": "CUR-X-009",
@@ -6404,7 +6468,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Núcleo"
   },
   {
     "id": "CUR-X-010",
@@ -6427,7 +6499,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — 300 000 km/s"
   },
   {
     "id": "CUR-X-011",
@@ -6450,7 +6530,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Italia"
   },
   {
     "id": "CUR-X-012",
@@ -6473,7 +6561,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Tokio"
   },
   {
     "id": "CUR-X-013",
@@ -6496,7 +6592,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Ballena azul"
   },
   {
     "id": "CUR-X-014",
@@ -6519,7 +6623,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Capa de ozono"
   },
   {
     "id": "CUR-X-015",
@@ -6542,7 +6654,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Fémur"
   },
   {
     "id": "CUR-X-016",
@@ -6565,7 +6685,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Mercurio"
   },
   {
     "id": "CUR-X-017",
@@ -6588,7 +6716,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Evaporación"
   },
   {
     "id": "CUR-X-018",
@@ -6611,7 +6747,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — El Sol"
   },
   {
     "id": "CUR-X-019",
@@ -6634,7 +6778,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Isaac Newton"
   },
   {
     "id": "CUR-X-020",
@@ -6657,7 +6809,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Amperio"
   },
   {
     "id": "CUR-X-021",
@@ -6680,7 +6840,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — 4"
   },
   {
     "id": "CUR-X-022",
@@ -6703,7 +6871,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Marte"
   },
   {
     "id": "CUR-X-023",
@@ -6726,7 +6902,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Himalaya"
   },
   {
     "id": "CUR-X-024",
@@ -6749,7 +6933,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Chino mandarín"
   },
   {
     "id": "CUR-X-025",
@@ -6772,7 +6964,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Corazón"
   },
   {
     "id": "CUR-X-026",
@@ -6795,7 +6995,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Refracción y dispersión de la luz"
   },
   {
     "id": "CUR-X-027",
@@ -6818,7 +7026,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Saturno"
   },
   {
     "id": "CUR-X-028",
@@ -6841,7 +7057,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Biología"
   },
   {
     "id": "CUR-X-029",
@@ -6864,7 +7088,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Santiago"
   },
   {
     "id": "CUR-X-030",
@@ -6887,7 +7119,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Motor eléctrico"
   },
   {
     "id": "CUR-X-031",
@@ -6910,7 +7150,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Sahara"
   },
   {
     "id": "CUR-X-032",
@@ -6933,7 +7181,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Nilo"
   },
   {
     "id": "CUR-X-033",
@@ -6956,7 +7212,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Mercurio"
   },
   {
     "id": "CUR-X-034",
@@ -6979,7 +7243,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Canberra"
   },
   {
     "id": "CUR-X-035",
@@ -7002,7 +7274,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Riñón"
   },
   {
     "id": "CUR-X-036",
@@ -7025,7 +7305,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — ADN"
   },
   {
     "id": "CUR-X-037",
@@ -7048,7 +7336,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Mohs"
   },
   {
     "id": "CUR-X-038",
@@ -7071,7 +7367,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Gravedad"
   },
   {
     "id": "CUR-X-039",
@@ -7094,7 +7398,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Estrella de mar"
   },
   {
     "id": "CUR-X-040",
@@ -7117,7 +7429,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Perú"
   },
   {
     "id": "CUR-X-041",
@@ -7140,7 +7460,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Ottawa"
   },
   {
     "id": "CUR-X-042",
@@ -7163,7 +7491,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Barómetro"
   },
   {
     "id": "CUR-X-043",
@@ -7186,7 +7522,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Océanos",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de océanos.",
+    "remedialAction": "Repasa océanos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Sublimación"
   },
   {
     "id": "CUR-X-044",
@@ -7209,7 +7553,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Geografía",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de geografía.",
+    "remedialAction": "Repasa geografía y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Hojas"
   },
   {
     "id": "CUR-X-045",
@@ -7232,7 +7584,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Biología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de biología.",
+    "remedialAction": "Repasa biología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Buenos Aires"
   },
   {
     "id": "CUR-X-046",
@@ -7255,7 +7615,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Física",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de física.",
+    "remedialAction": "Repasa física y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Núcleo externo"
   },
   {
     "id": "CUR-X-047",
@@ -7278,7 +7646,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Historia",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de historia.",
+    "remedialAction": "Repasa historia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — O negativo"
   },
   {
     "id": "CUR-X-048",
@@ -7301,7 +7677,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Tecnología",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de tecnología.",
+    "remedialAction": "Repasa tecnología y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Charles Darwin"
   },
   {
     "id": "CUR-X-049",
@@ -7324,7 +7708,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Espacio",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de espacio.",
+    "remedialAction": "Repasa espacio y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Nueva Zelanda"
   },
   {
     "id": "CUR-X-050",
@@ -7347,6 +7739,14 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Cuerpo humano",
+    "type": "Curiosidades",
+    "hint": "Recuerda la idea principal de cuerpo humano.",
+    "remedialAction": "Repasa cuerpo humano y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Potencial gravitatoria"
   }
 ]

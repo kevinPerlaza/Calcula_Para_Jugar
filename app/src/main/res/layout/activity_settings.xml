@@ -247,6 +247,27 @@
                         app:backgroundTint="@null"
                         app:cornerRadius="8dp" />
 
+                    <TextView
+                        android:id="@+id/tvBatteryStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:padding="4dp"
+                        android:text="Revisa el ahorro de batería para evitar cierres del servicio"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBatterySettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_glass_button_secondary"
+                        android:text="Abrir ajustes de batería"
+                        android:textColor="@color/primary"
+                        android:textSize="11sp"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="8dp" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

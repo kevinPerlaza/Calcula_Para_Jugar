@@ -122,7 +122,29 @@ class MonitorService : Service() {
         handler.removeCallbacks(pollRunnable)
         runCatching { unregisterReceiver(screenStateReceiver) }
         cancelAlarm()
+        scheduleServiceRestartIfNeeded()
         Log.d(TAG, "=== Servicio DESTRUIDO ===")
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        scheduleServiceRestartIfNeeded()
+    }
+
+    private fun scheduleServiceRestartIfNeeded() {
+        if (AppConfig.isProtectionEnabled(this)) {
+            val restartIntent = Intent(this, MonitorService::class.java)
+            val pending = PendingIntent.getService(
+                this, 7001, restartIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            alarmManager.setAndAllowWhileIdle(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + 5_000L,
+                pending
+            )
+        }
     }
 
     // ═══════════════════════════════════════════

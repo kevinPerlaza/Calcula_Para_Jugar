@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_liquid_root"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:text=""
+            app:backgroundTint="@color/card_dark"
+            app:cornerRadius="21dp"
+            app:icon="@drawable/ic_ui_back"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@null" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="Aprender"
+            android:textColor="@color/text_primary"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_cyber_panel"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meta diaria"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Aún no has practicado hoy"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tvDailyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="0 de 10 preguntas correctas"
+                    android:textColor="#FFC6FFFF"
+                    android:textStyle="bold" />
+                <ProgressBar
+                    android:id="@+id/progressDailyGoal"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="7dp"
+                    android:max="10"
+                    android:progressTint="#FF66F7FF" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDailyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Meta: 10"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@color/card_dark"
+                    app:cornerRadius="21dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPractice"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_cyber_action"
+                android:text="Práctica libre"
+                android:textAllCaps="false"
+                android:textColor="#FF061222"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="30dp"
+                app:icon="@drawable/ic_ui_test"
+                app:iconTint="@null" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLevelTest"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_cyber_action_secondary"
+                android:text="Evaluación de nivel"
+                android:textAllCaps="false"
+                android:textColor="#FFC6FFFF"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="29dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPeriodicTable"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_cyber_action_secondary"
+                android:text="Explorar tabla periódica"
+                android:textAllCaps="false"
+                android:textColor="#FFC6FFFF"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="29dp"
+                app:icon="@drawable/ic_ui_book"
+                app:iconTint="@null" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

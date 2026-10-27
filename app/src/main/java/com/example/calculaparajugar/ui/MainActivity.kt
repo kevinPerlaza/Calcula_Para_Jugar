@@ -57,15 +57,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PeriodicTableActivity::class.java))
         }
 
-        binding.btnPractice.setOnClickListener {
-            startActivity(Intent(this, QuestionActivity::class.java).apply {
-                putExtra(QuestionActivity.EXTRA_PRACTICE_MODE, true)
-            })
+        binding.btnLearn.setOnClickListener {
+            startActivity(Intent(this, LearningActivity::class.java))
         }
-
-        binding.btnDailyGoal.setOnClickListener {
-            AppConfig.cycleDailyGoal(this)
-            updateProgress()
+        binding.btnStats.setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
         }
 
         binding.sliderInterval.addOnChangeListener { _, value, fromUser ->
@@ -105,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Selecciona al menos una app o activa todas", Toast.LENGTH_LONG).show()
                 } else {
                     startForegroundService(Intent(this, MonitorService::class.java))
+                    AppConfig.setProtectionEnabled(this, true)
                     Toast.makeText(this, "BrainWall activado", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -112,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnStopService.setOnClickListener {
             val stopProtection = {
+                AppConfig.setProtectionEnabled(this, false)
                 stopService(Intent(this, MonitorService::class.java))
                 Toast.makeText(this, "Protección desactivada", Toast.LENGTH_SHORT).show()
             }
@@ -154,18 +152,6 @@ class MainActivity : AppCompatActivity() {
         binding.tvTodayCorrect.text = "${p.todayCorrect}"
         binding.tvTodayIncorrect.text = "${p.todayIncorrect}"
         binding.progressLevel.progress = (p.levelProgress * 100).toInt()
-        val dailyGoal = AppConfig.getDailyGoal(this)
-        val completed = p.todayCorrect.coerceAtMost(dailyGoal)
-        binding.tvDailyGoal.text = "$completed de $dailyGoal preguntas"
-        binding.progressDailyGoal.max = dailyGoal
-        binding.progressDailyGoal.progress = completed
-        binding.btnDailyGoal.text = "Meta: $dailyGoal"
-        binding.tvAccuracy.text = if (p.todayCorrect + p.todayIncorrect == 0) {
-            "Precisión de hoy: sin respuestas"
-        } else {
-            val accuracy = p.todayCorrect * 100 / (p.todayCorrect + p.todayIncorrect)
-            "Precisión de hoy: $accuracy%"
-        }
 
         // Actualizar mascota header
         val mascot = MascotManager.getStageForLevel(p.level)
@@ -190,8 +176,8 @@ class MainActivity : AppCompatActivity() {
             binding.btnSettings,
             binding.btnSelectApps,
             binding.btnPeriodicTable,
-            binding.btnPractice,
-            binding.btnDailyGoal,
+            binding.btnLearn,
+            binding.btnStats,
             binding.btnStartService,
             binding.btnStopService,
             binding.btnPauseService,

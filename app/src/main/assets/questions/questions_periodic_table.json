@@ -7336,7 +7336,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Símbolos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de símbolos.",
+    "remedialAction": "Repasa símbolos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Grupo 18"
   },
   {
     "id": "PER-X-002",
@@ -7359,7 +7367,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Número atómico",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de número atómico.",
+    "remedialAction": "Repasa número atómico y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Grupo 17"
   },
   {
     "id": "PER-X-003",
@@ -7382,7 +7398,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Grupos y períodos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de grupos y períodos.",
+    "remedialAction": "Repasa grupos y períodos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Flúor"
   },
   {
     "id": "PER-X-004",
@@ -7405,7 +7429,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Metales y no metales",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de metales y no metales.",
+    "remedialAction": "Repasa metales y no metales y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Protón"
   },
   {
     "id": "PER-X-005",
@@ -7428,7 +7460,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Alcalinos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de alcalinos.",
+    "remedialAction": "Repasa alcalinos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Períodos"
   },
   {
     "id": "PER-X-006",
@@ -7451,7 +7491,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Halógenos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de halógenos.",
+    "remedialAction": "Repasa halógenos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Grupos"
   },
   {
     "id": "PER-X-007",
@@ -7474,7 +7522,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Gases nobles",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de gases nobles.",
+    "remedialAction": "Repasa gases nobles y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Metales alcalinos"
   },
   {
     "id": "PER-X-008",
@@ -7497,7 +7553,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Estados de la materia",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de estados de la materia.",
+    "remedialAction": "Repasa estados de la materia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Carbono-12"
   },
   {
     "id": "PER-X-009",
@@ -7520,7 +7584,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Elementos de la vida",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de elementos de la vida.",
+    "remedialAction": "Repasa elementos de la vida y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Aluminio"
   },
   {
     "id": "PER-X-010",
@@ -7543,7 +7615,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Aplicaciones",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de aplicaciones.",
+    "remedialAction": "Repasa aplicaciones y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Hierro"
   },
   {
     "id": "PER-X-011",
@@ -7566,7 +7646,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Símbolos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de símbolos.",
+    "remedialAction": "Repasa símbolos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Carbono"
   },
   {
     "id": "PER-X-012",
@@ -7589,7 +7677,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Número atómico",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de número atómico.",
+    "remedialAction": "Repasa número atómico y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Neón"
   },
   {
     "id": "PER-X-013",
@@ -7612,7 +7708,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Grupos y períodos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de grupos y períodos.",
+    "remedialAction": "Repasa grupos y períodos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Potasio"
   },
   {
     "id": "PER-X-014",
@@ -7635,7 +7739,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Metales y no metales",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de metales y no metales.",
+    "remedialAction": "Repasa metales y no metales y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Sodio"
   },
   {
     "id": "PER-X-015",
@@ -7658,7 +7770,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Alcalinos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de alcalinos.",
+    "remedialAction": "Repasa alcalinos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Wolframio"
   },
   {
     "id": "PER-X-016",
@@ -7681,7 +7801,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Halógenos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de halógenos.",
+    "remedialAction": "Repasa halógenos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Silicio"
   },
   {
     "id": "PER-X-017",
@@ -7704,7 +7832,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Gases nobles",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de gases nobles.",
+    "remedialAction": "Repasa gases nobles y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Bloque d"
   },
   {
     "id": "PER-X-018",
@@ -7727,7 +7863,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Estados de la materia",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de estados de la materia.",
+    "remedialAction": "Repasa estados de la materia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Bromo y mercurio"
   },
   {
     "id": "PER-X-019",
@@ -7750,7 +7894,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Elementos de la vida",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de elementos de la vida.",
+    "remedialAction": "Repasa elementos de la vida y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Litio"
   },
   {
     "id": "PER-X-020",
@@ -7773,7 +7925,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Aplicaciones",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de aplicaciones.",
+    "remedialAction": "Repasa aplicaciones y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Silicio"
   },
   {
     "id": "PER-X-021",
@@ -7796,7 +7956,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Símbolos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de símbolos.",
+    "remedialAction": "Repasa símbolos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Electronegatividad"
   },
   {
     "id": "PER-X-022",
@@ -7819,7 +7987,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Número atómico",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de número atómico.",
+    "remedialAction": "Repasa número atómico y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Radio atómico"
   },
   {
     "id": "PER-X-023",
@@ -7842,7 +8018,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Grupos y períodos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de grupos y períodos.",
+    "remedialAction": "Repasa grupos y períodos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Na⁺"
   },
   {
     "id": "PER-X-024",
@@ -7865,7 +8049,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Metales y no metales",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de metales y no metales.",
+    "remedialAction": "Repasa metales y no metales y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Cl⁻"
   },
   {
     "id": "PER-X-025",
@@ -7888,7 +8080,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Alcalinos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de alcalinos.",
+    "remedialAction": "Repasa alcalinos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Hidrógeno"
   },
   {
     "id": "PER-X-026",
@@ -7911,7 +8111,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Halógenos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de halógenos.",
+    "remedialAction": "Repasa halógenos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Uranio"
   },
   {
     "id": "PER-X-027",
@@ -7934,7 +8142,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Gases nobles",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de gases nobles.",
+    "remedialAction": "Repasa gases nobles y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Alcalinotérreos"
   },
   {
     "id": "PER-X-028",
@@ -7957,7 +8173,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Estados de la materia",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de estados de la materia.",
+    "remedialAction": "Repasa estados de la materia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Bloque f"
   },
   {
     "id": "PER-X-029",
@@ -7980,7 +8204,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Elementos de la vida",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de elementos de la vida.",
+    "remedialAction": "Repasa elementos de la vida y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Oro"
   },
   {
     "id": "PER-X-030",
@@ -8003,7 +8235,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Aplicaciones",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de aplicaciones.",
+    "remedialAction": "Repasa aplicaciones y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Plata"
   },
   {
     "id": "PER-X-031",
@@ -8026,7 +8266,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Símbolos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de símbolos.",
+    "remedialAction": "Repasa símbolos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Plomo"
   },
   {
     "id": "PER-X-032",
@@ -8049,7 +8297,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Número atómico",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de número atómico.",
+    "remedialAction": "Repasa número atómico y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Estaño"
   },
   {
     "id": "PER-X-033",
@@ -8072,7 +8328,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Grupos y períodos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de grupos y períodos.",
+    "remedialAction": "Repasa grupos y períodos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Cloro"
   },
   {
     "id": "PER-X-034",
@@ -8095,7 +8359,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Metales y no metales",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de metales y no metales.",
+    "remedialAction": "Repasa metales y no metales y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Cromo"
   },
   {
     "id": "PER-X-035",
@@ -8118,7 +8390,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Alcalinos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de alcalinos.",
+    "remedialAction": "Repasa alcalinos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Nitrógeno"
   },
   {
     "id": "PER-X-036",
@@ -8141,7 +8421,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Halógenos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de halógenos.",
+    "remedialAction": "Repasa halógenos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Oxígeno"
   },
   {
     "id": "PER-X-037",
@@ -8164,7 +8452,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Gases nobles",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de gases nobles.",
+    "remedialAction": "Repasa gases nobles y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Hierro"
   },
   {
     "id": "PER-X-038",
@@ -8187,7 +8483,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Estados de la materia",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de estados de la materia.",
+    "remedialAction": "Repasa estados de la materia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 2,
+    "correctLetter": "C",
+    "correctAnswerUi": "C — Oro"
   },
   {
     "id": "PER-X-039",
@@ -8210,7 +8514,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Elementos de la vida",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de elementos de la vida.",
+    "remedialAction": "Repasa elementos de la vida y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Wolframio"
   },
   {
     "id": "PER-X-040",
@@ -8233,7 +8545,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Aplicaciones",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de aplicaciones.",
+    "remedialAction": "Repasa aplicaciones y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Sodio"
   },
   {
     "id": "PER-X-041",
@@ -8256,7 +8576,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Símbolos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de símbolos.",
+    "remedialAction": "Repasa símbolos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Uranio"
   },
   {
     "id": "PER-X-042",
@@ -8279,7 +8607,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Número atómico",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de número atómico.",
+    "remedialAction": "Repasa número atómico y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Calcio"
   },
   {
     "id": "PER-X-043",
@@ -8302,7 +8638,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Grupos y períodos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de grupos y períodos.",
+    "remedialAction": "Repasa grupos y períodos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Calcio"
   },
   {
     "id": "PER-X-044",
@@ -8325,7 +8669,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Metales y no metales",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de metales y no metales.",
+    "remedialAction": "Repasa metales y no metales y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Cobre"
   },
   {
     "id": "PER-X-045",
@@ -8348,7 +8700,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Alcalinos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de alcalinos.",
+    "remedialAction": "Repasa alcalinos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Cobre"
   },
   {
     "id": "PER-X-046",
@@ -8371,7 +8731,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Halógenos",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de halógenos.",
+    "remedialAction": "Repasa halógenos y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Magnesio"
   },
   {
     "id": "PER-X-047",
@@ -8394,7 +8762,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Gases nobles",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de gases nobles.",
+    "remedialAction": "Repasa gases nobles y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 0,
+    "correctLetter": "A",
+    "correctAnswerUi": "A — Magnesio"
   },
   {
     "id": "PER-X-048",
@@ -8417,7 +8793,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Estados de la materia",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de estados de la materia.",
+    "remedialAction": "Repasa estados de la materia y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Fósforo"
   },
   {
     "id": "PER-X-049",
@@ -8440,7 +8824,15 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Elementos de la vida",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de elementos de la vida.",
+    "remedialAction": "Repasa elementos de la vida y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 3,
+    "correctLetter": "D",
+    "correctAnswerUi": "D — Azufre"
   },
   {
     "id": "PER-X-050",
@@ -8463,6 +8855,14 @@
     "poolJumpL1L2": "Sí",
     "poolJumpL2L3": "Sí",
     "poolJumpL3L4": "Sí",
-    "poolJumpL4L5": "Sí"
+    "poolJumpL4L5": "Sí",
+    "topic": "Aplicaciones",
+    "type": "Tabla periódica",
+    "hint": "Recuerda la idea principal de aplicaciones.",
+    "remedialAction": "Repasa aplicaciones y vuelve a intentarlo con otro ejemplo.",
+    "retryRule": "Reintentar después de revisar la explicación.",
+    "answerIndex": 1,
+    "correctLetter": "B",
+    "correctAnswerUi": "B — Electrones de valencia similares"
   }
 ]

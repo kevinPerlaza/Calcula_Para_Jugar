@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
+import android.os.PowerManager
 import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -90,6 +91,10 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBatterySettings.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+        }
+
         binding.btnExportBackup.setOnClickListener {
             exportBackup.launch("brainwall-respaldo.json")
         }
@@ -121,6 +126,7 @@ class SettingsActivity : AppCompatActivity() {
             binding.btnGrantOverlay,
             binding.btnGrantUsageStats,
             binding.btnGrantNotifications,
+            binding.btnBatterySettings,
             binding.btnChangePin,
             binding.btnExportBackup,
             binding.btnImportBackup
@@ -156,6 +162,13 @@ class SettingsActivity : AppCompatActivity() {
         binding.tvNotificationsStatus.setTextColor(statusColor(notificationsGranted))
         binding.btnGrantNotifications.isEnabled = !notificationsGranted
         binding.btnGrantNotifications.text = if (notificationsGranted) "Configurado" else "Conceder notificaciones"
+
+        val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+        val batteryReady = powerManager.isIgnoringBatteryOptimizations(packageName)
+        binding.tvBatteryStatus.text = if (batteryReady)
+            "Batería sin restricciones" else "Revisa el ahorro de batería para evitar cierres del servicio"
+        binding.tvBatteryStatus.setTextColor(statusColor(batteryReady))
+        binding.btnBatterySettings.text = if (batteryReady) "Configurado" else "Abrir ajustes de batería"
     }
 
     private fun statusColor(isReady: Boolean): Int {

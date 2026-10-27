@@ -23,8 +23,8 @@ jobs:
       - name: Validate question banks
         run: python3 scripts/validate_question_banks.py
 
-      - name: Build clean debug APK
-        run: ./gradlew clean assembleDebug --stacktrace
+      - name: Unit tests and clean debug APK
+        run: ./gradlew clean testDebugUnitTest assembleDebug --stacktrace
 
       - name: Verify APK archive
         run: unzip -t app/build/outputs/apk/debug/app-debug.apk

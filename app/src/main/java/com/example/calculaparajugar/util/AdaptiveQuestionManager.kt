@@ -2,20 +2,18 @@ package com.example.calculaparajugar.util
 
 import android.content.Context
 import com.example.calculaparajugar.data.QuestionBank
-import kotlin.math.max
 import kotlin.random.Random
 
 /** Prioriza preguntas falladas sin dejar de introducir contenido nuevo. */
 object AdaptiveQuestionManager {
     private const val PREFS = "brainwall_adaptive"
     private const val RECENT_WINDOW_MS = 24 * 60 * 60_000L
-    private const val NEW_QUESTION_WEIGHT = 9
-
     fun recordAnswer(
         context: Context,
-        questionId: String,
+        question: QuestionBank.Question?,
         correct: Boolean,
-        category: QuestionGenerator.Category
+        category: QuestionGenerator.Category,
+        responseMs: Long
     ) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val editor = prefs.edit()
@@ -24,6 +22,9 @@ object AdaptiveQuestionManager {
         if (!correct) {
             editor.putInt("category_wrong_$categoryKey", prefs.getInt("category_wrong_$categoryKey", 0) + 1)
         }
+        val responseTotal = prefs.getLong("category_response_$categoryKey", 0L) + responseMs
+        editor.putLong("category_response_$categoryKey", responseTotal)
+        val questionId = question?.id.orEmpty()
         if (questionId.isBlank()) {
             editor.apply()
             return
@@ -32,11 +33,19 @@ object AdaptiveQuestionManager {
         val key = prefix + questionId
         val correctCount = prefs.getInt("correct_$questionId", 0) + if (correct) 1 else 0
         val wrongCount = prefs.getInt("wrong_$questionId", 0) + if (correct) 0 else 1
-        val delay = reviewDelayMillis(correctCount, wrongCount, correct)
+        val topicKey = topicKey(question?.topic.orEmpty())
+        val knownTopics = prefs.getStringSet("known_topics", emptySet()).orEmpty() + topicKey
+        val topicTotal = prefs.getInt("topic_total_$topicKey", 0) + 1
+        val topicWrong = prefs.getInt("topic_wrong_$topicKey", 0) + if (correct) 0 else 1
+        val delay = LearningPolicy.reviewDelayMillis(correctCount, wrongCount, correct, responseMs)
         editor
             .putInt(key, prefs.getInt(key, 0) + 1)
             .putLong("seen_$questionId", System.currentTimeMillis())
             .putLong("due_$questionId", System.currentTimeMillis() + delay)
+            .putString("topic_name_$topicKey", question?.topic.orEmpty())
+            .putStringSet("known_topics", knownTopics)
+            .putInt("topic_total_$topicKey", topicTotal)
+            .putInt("topic_wrong_$topicKey", topicWrong)
             .apply()
     }
 
@@ -61,9 +70,11 @@ object AdaptiveQuestionManager {
         val weighted = pool.map { question ->
             val correct = prefs.getInt("correct_${question.id}", 0)
             val wrong = prefs.getInt("wrong_${question.id}", 0)
-            val attempts = correct + wrong
-            val weight = if (attempts == 0) NEW_QUESTION_WEIGHT else 3 + wrong * 5 - correct * 2
-            question to max(1, weight)
+            val key = topicKey(question.topic)
+            val topicTotal = prefs.getInt("topic_total_$key", 0)
+            val topicWrong = prefs.getInt("topic_wrong_$key", 0)
+            val topicAccuracy = if (topicTotal == 0) 1.0 else (topicTotal - topicWrong).toDouble() / topicTotal
+            question to LearningPolicy.questionWeight(correct, wrong, topicAccuracy)
         }
         var pick = Random.nextInt(weighted.sumOf { it.second })
         for ((question, weight) in weighted) {
@@ -82,14 +93,10 @@ object AdaptiveQuestionManager {
         val base = QuestionBank.difficultyForUserLevel(userLevel)
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val total = prefs.getInt("category_total_${category.name}", 0)
-        if (total < 5) return base
         val wrong = prefs.getInt("category_wrong_${category.name}", 0)
-        val accuracy = (total - wrong).toFloat() / total
-        return when {
-            accuracy < 0.55f -> (base - 1).coerceAtLeast(1)
-            accuracy > 0.85f && total >= 10 -> (base + 1).coerceAtMost(5)
-            else -> base
-        }
+        val averageResponse = if (total == 0) 0L else
+            prefs.getLong("category_response_${category.name}", 0L) / total
+        return LearningPolicy.adaptiveDifficulty(base, total, wrong, averageResponse)
     }
 
     /** Rota materias y refuerza las que presentan más errores. */
@@ -117,16 +124,18 @@ object AdaptiveQuestionManager {
         return selected
     }
 
-    private fun reviewDelayMillis(correct: Int, wrong: Int, wasCorrect: Boolean): Long {
-        if (!wasCorrect) return 5 * 60_000L
-        val mastery = (correct - wrong).coerceIn(0, 5)
-        val hours = when (mastery) {
-            0 -> 1L
-            1 -> 6L
-            2 -> 24L
-            3 -> 72L
-            else -> 168L
-        }
-        return hours * 60 * 60_000L
+    fun getWeakTopics(context: Context, limit: Int = 5): List<Pair<String, Int>> {
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        return prefs.getStringSet("known_topics", emptySet()).orEmpty().mapNotNull { key ->
+            val total = prefs.getInt("topic_total_$key", 0)
+            if (total < 2) return@mapNotNull null
+            val wrong = prefs.getInt("topic_wrong_$key", 0)
+            val errorRate = wrong * 100 / total
+            (prefs.getString("topic_name_$key", key) ?: key) to errorRate
+        }.sortedByDescending { it.second }.take(limit)
     }
+
+    private fun topicKey(topic: String): String = topic.lowercase()
+        .replace(Regex("[^a-záéíóúüñ0-9]+"), "_")
+        .trim('_')
 }

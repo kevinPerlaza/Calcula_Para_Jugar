@@ -268,3 +268,5 @@ if __name__ == "__main__":
     append("questions_python.json", python_questions())
     append("questions_curiosidades.json", fact_questions())
     append("questions_periodic_table.json", periodic_questions())
+    from curate_question_banks import main as curate
+    curate()

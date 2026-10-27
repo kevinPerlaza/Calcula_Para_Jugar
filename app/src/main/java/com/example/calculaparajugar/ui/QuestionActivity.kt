@@ -42,7 +42,8 @@ class QuestionActivity : AppCompatActivity() {
     private var currentCategory: QuestionGenerator.Category = QuestionGenerator.Category.MATH
     private var answerLocked: Boolean = false
     private var correctButtonIndex: Int = -1
-    private var currentBankQuestionId: String = ""
+    private var currentBankQuestion: QuestionBank.Question? = null
+    private var questionStartedAt: Long = 0L
     private val optionLetters = listOf("A", "B", "C", "D")
     private val recentQuestionIds = mutableListOf<String>()
     private val uiHandler = Handler(Looper.getMainLooper())
@@ -92,7 +93,7 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun loadQuestion() {
         answerLocked = false
-        currentBankQuestionId = ""
+        currentBankQuestion = null
         resetQuestionUi()
 
         // Leer categoría del intent (pasada por MonitorService), o aleatoria como fallback
@@ -127,7 +128,8 @@ class QuestionActivity : AppCompatActivity() {
         binding.tvQuestion.text = q.question
         correctAnswer = q.answer
         explanation = q.explanation
-        currentBankQuestionId = q.id
+        currentBankQuestion = q
+        questionStartedAt = System.currentTimeMillis()
         rememberQuestion(q.id)
 
         // Siempre opciones múltiples desde el banco
@@ -145,6 +147,7 @@ class QuestionActivity : AppCompatActivity() {
         binding.tvQuestion.text = lesson.questionText
         correctAnswer = lesson.correctAnswer
         explanation = ""
+        questionStartedAt = System.currentTimeMillis()
 
         if (lesson.options.isEmpty()) {
             binding.layoutFreeAnswer.visibility = View.VISIBLE
@@ -187,7 +190,10 @@ class QuestionActivity : AppCompatActivity() {
         selectedIndex?.let { colorOption(it, true) }
 
         LessonManager.onCorrectAnswer(this, currentCategory)
-        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, true, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(
+            this, currentBankQuestion, true, currentCategory,
+            System.currentTimeMillis() - questionStartedAt
+        )
         val result = ProgressManager.onCorrect(this)
         val progress = ProgressManager.getProgress(this)
 
@@ -220,7 +226,10 @@ class QuestionActivity : AppCompatActivity() {
         if (correctButtonIndex >= 0) colorOption(correctButtonIndex, true)
 
         LessonManager.onIncorrectAnswer(this, currentCategory)
-        AdaptiveQuestionManager.recordAnswer(this, currentBankQuestionId, false, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(
+            this, currentBankQuestion, false, currentCategory,
+            System.currentTimeMillis() - questionStartedAt
+        )
         ProgressManager.onIncorrect(this)
         binding.tvFeedback.text = "Revisa la explicación"
         binding.tvFeedback.setTextColor(getColor(R.color.incorrect_red))
@@ -298,6 +307,7 @@ class QuestionActivity : AppCompatActivity() {
             append("La respuesta correcta era ${correctAnswerWithLetter()}.")
             if (why.isNotBlank()) append("\n$why")
             if (commonError.isNotBlank()) append("\nError común: $commonError")
+            if (q.remedialAction.isNotBlank()) append("\nSiguiente paso: ${q.remedialAction}")
         }
     }
 

@@ -19,6 +19,7 @@ object AppConfig {
     private const val KEY_GUIDE_SEEN = "guide_seen"
     private const val KEY_PAUSED_UNTIL = "paused_until"
     private const val KEY_DAILY_GOAL = "daily_goal"
+    private const val KEY_PROTECTION_ENABLED = "protection_enabled"
 
     private fun prefs(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -98,4 +99,11 @@ object AppConfig {
         prefs(context).edit().putInt(KEY_DAILY_GOAL, next).apply()
         return next
     }
+
+    fun setProtectionEnabled(context: Context, enabled: Boolean) {
+        prefs(context).edit().putBoolean(KEY_PROTECTION_ENABLED, enabled).apply()
+    }
+
+    fun isProtectionEnabled(context: Context): Boolean =
+        prefs(context).getBoolean(KEY_PROTECTION_ENABLED, false)
 }
