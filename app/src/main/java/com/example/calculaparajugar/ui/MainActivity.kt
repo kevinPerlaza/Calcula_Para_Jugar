@@ -1,8 +1,11 @@
 package com.example.calculaparajugar.ui
 
+import android.Manifest
 import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import android.provider.Settings
@@ -54,6 +57,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PeriodicTableActivity::class.java))
         }
 
+        binding.btnLearn.setOnClickListener {
+            startActivity(Intent(this, LearningActivity::class.java))
+        }
+        binding.btnStats.setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
+        }
+
         binding.sliderInterval.addOnChangeListener { _, value, fromUser ->
             if (fromUser) {
                 val min = value.toInt()
@@ -69,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             if (checkedIds.contains(R.id.chipEnglish)) cats.add(QuestionGenerator.Category.ENGLISH)
             if (checkedIds.contains(R.id.chipPython)) cats.add(QuestionGenerator.Category.PYTHON)
             if (checkedIds.contains(R.id.chipCuriosidades)) cats.add(QuestionGenerator.Category.CURIOSIDADES)
+            if (checkedIds.contains(R.id.chipPeriodicTable)) cats.add(QuestionGenerator.Category.PERIODIC_TABLE)
             if (cats.isEmpty()) {
                 binding.chipMath.isChecked = true
                 cats.add(QuestionGenerator.Category.MATH)
@@ -90,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Selecciona al menos una app o activa todas", Toast.LENGTH_LONG).show()
                 } else {
                     startForegroundService(Intent(this, MonitorService::class.java))
+                    AppConfig.setProtectionEnabled(this, true)
                     Toast.makeText(this, "BrainWall activado", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -97,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnStopService.setOnClickListener {
             val stopProtection = {
+                AppConfig.setProtectionEnabled(this, false)
                 stopService(Intent(this, MonitorService::class.java))
                 Toast.makeText(this, "Protección desactivada", Toast.LENGTH_SHORT).show()
             }
@@ -107,6 +120,11 @@ class MainActivity : AppCompatActivity() {
             } else {
                 stopProtection()
             }
+        }
+
+        binding.btnPauseService.setOnClickListener {
+            AppConfig.pauseFor(this, 30 * 60_000L)
+            Toast.makeText(this, "Preguntas pausadas durante 30 minutos", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -120,6 +138,7 @@ class MainActivity : AppCompatActivity() {
         binding.chipEnglish.isChecked = QuestionGenerator.Category.ENGLISH in cats
         binding.chipPython.isChecked = QuestionGenerator.Category.PYTHON in cats
         binding.chipCuriosidades.isChecked = QuestionGenerator.Category.CURIOSIDADES in cats
+        binding.chipPeriodicTable.isChecked = QuestionGenerator.Category.PERIODIC_TABLE in cats
 
         updateBlockedCount()
         updateProgress()
@@ -157,12 +176,16 @@ class MainActivity : AppCompatActivity() {
             binding.btnSettings,
             binding.btnSelectApps,
             binding.btnPeriodicTable,
+            binding.btnLearn,
+            binding.btnStats,
             binding.btnStartService,
             binding.btnStopService,
+            binding.btnPauseService,
             binding.chipMath,
             binding.chipEnglish,
             binding.chipPython,
-            binding.chipCuriosidades
+            binding.chipCuriosidades,
+            binding.chipPeriodicTable
         ).forEach { it.applyPressFeedback() }
     }
 
@@ -230,6 +253,13 @@ class MainActivity : AppCompatActivity() {
         }
         if (!hasUsageStatsPermission()) {
             Toast.makeText(this, "Concede permisos en Ajustes", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, SettingsActivity::class.java))
+            return false
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Toast.makeText(this, "Activa las notificaciones del servicio", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, SettingsActivity::class.java))
             return false
         }

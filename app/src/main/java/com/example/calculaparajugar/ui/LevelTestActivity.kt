@@ -355,5 +355,6 @@ class LevelTestActivity : AppCompatActivity() {
         QuestionGenerator.Category.ENGLISH -> "Inglés"
         QuestionGenerator.Category.PYTHON -> "Python"
         QuestionGenerator.Category.CURIOSIDADES -> "Curiosidades"
+        QuestionGenerator.Category.PERIODIC_TABLE -> "Tabla periódica"
     }
 }

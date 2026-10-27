@@ -18,6 +18,7 @@ import com.example.calculaparajugar.data.QuestionBank
 import com.example.calculaparajugar.databinding.ActivityQuestionBinding
 import com.example.calculaparajugar.service.MonitorService
 import com.example.calculaparajugar.util.AppConfig
+import com.example.calculaparajugar.util.AdaptiveQuestionManager
 import com.example.calculaparajugar.util.LessonManager
 import com.example.calculaparajugar.util.ProgressManager
 import com.example.calculaparajugar.util.QuestionGenerator
@@ -30,6 +31,10 @@ import com.google.android.material.button.MaterialButton
  */
 class QuestionActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_PRACTICE_MODE = "practice_mode"
+    }
+
     private lateinit var binding: ActivityQuestionBinding
     private var correctAnswer: String = ""
     private var explanation: String = ""
@@ -37,9 +42,12 @@ class QuestionActivity : AppCompatActivity() {
     private var currentCategory: QuestionGenerator.Category = QuestionGenerator.Category.MATH
     private var answerLocked: Boolean = false
     private var correctButtonIndex: Int = -1
+    private var currentBankQuestion: QuestionBank.Question? = null
+    private var questionStartedAt: Long = 0L
     private val optionLetters = listOf("A", "B", "C", "D")
     private val recentQuestionIds = mutableListOf<String>()
     private val uiHandler = Handler(Looper.getMainLooper())
+    private var isPracticeMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +59,16 @@ class QuestionActivity : AppCompatActivity() {
         binding = ActivityQuestionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.root.applySystemBarInsets()
+        isPracticeMode = intent.getBooleanExtra(EXTRA_PRACTICE_MODE, false)
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() = Unit
+            override fun handleOnBackPressed() {
+                if (isPracticeMode) finish()
+            }
         })
 
-        MonitorService.isQuestionVisible = true
+        if (!isPracticeMode) MonitorService.isQuestionVisible = true
+        binding.btnClosePractice.visibility = if (isPracticeMode) View.VISIBLE else View.GONE
+        binding.btnClosePractice.setOnClickListener { finish() }
         setupMicroInteractions()
         binding.questionSheet.playSheetEnter()
         binding.imgCategoryIcon.playSoftPopEnter()
@@ -80,11 +93,14 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun loadQuestion() {
         answerLocked = false
+        currentBankQuestion = null
         resetQuestionUi()
 
         // Leer categoría del intent (pasada por MonitorService), o aleatoria como fallback
         val categoryName = intent.getStringExtra("category")
-        currentCategory = if (categoryName != null) {
+        currentCategory = if (isPracticeMode) {
+            AdaptiveQuestionManager.selectCategory(this, AppConfig.getEnabledCategories(this))
+        } else if (categoryName != null) {
             try { QuestionGenerator.Category.valueOf(categoryName) }
             catch (e: IllegalArgumentException) { AppConfig.getEnabledCategories(this).random() }
         } else {
@@ -108,10 +124,12 @@ class QuestionActivity : AppCompatActivity() {
 
     private fun showBankQuestion(q: QuestionBank.Question) {
         binding.imgCategoryIcon.setImageResource(iconForCategory(currentCategory))
-        binding.tvCategoryName.text = "PREGUNTA · ${currentCategory.displayName}"
+        binding.tvCategoryName.text = "${if (isPracticeMode) "PRÁCTICA" else "PREGUNTA"} · ${currentCategory.displayName}"
         binding.tvQuestion.text = q.question
         correctAnswer = q.answer
         explanation = q.explanation
+        currentBankQuestion = q
+        questionStartedAt = System.currentTimeMillis()
         rememberQuestion(q.id)
 
         // Siempre opciones múltiples desde el banco
@@ -125,10 +143,11 @@ class QuestionActivity : AppCompatActivity() {
     private fun showLessonQuestion() {
         val lesson = LessonManager.getCurrentLesson(this, currentCategory)
         binding.imgCategoryIcon.setImageResource(iconForCategory(lesson.category))
-        binding.tvCategoryName.text = "PREGUNTA · ${lesson.category.displayName}"
+        binding.tvCategoryName.text = "${if (isPracticeMode) "PRÁCTICA" else "PREGUNTA"} · ${lesson.category.displayName}"
         binding.tvQuestion.text = lesson.questionText
         correctAnswer = lesson.correctAnswer
         explanation = ""
+        questionStartedAt = System.currentTimeMillis()
 
         if (lesson.options.isEmpty()) {
             binding.layoutFreeAnswer.visibility = View.VISIBLE
@@ -171,6 +190,10 @@ class QuestionActivity : AppCompatActivity() {
         selectedIndex?.let { colorOption(it, true) }
 
         LessonManager.onCorrectAnswer(this, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(
+            this, currentBankQuestion, true, currentCategory,
+            System.currentTimeMillis() - questionStartedAt
+        )
         val result = ProgressManager.onCorrect(this)
         val progress = ProgressManager.getProgress(this)
 
@@ -183,7 +206,7 @@ class QuestionActivity : AppCompatActivity() {
         binding.tvFeedback.setTextColor(getColor(R.color.correct_green))
         binding.tvFeedback.visibility = View.VISIBLE
 
-        MonitorService.markChallengeResolved()
+        if (!isPracticeMode) MonitorService.markChallengeResolved()
 
         uiHandler.postDelayed({
             if (result.leveledUp) {
@@ -192,7 +215,7 @@ class QuestionActivity : AppCompatActivity() {
                     putExtra(LevelUpActivity.EXTRA_EVOLVED, result.mascotEvolved)
                 })
             }
-            finish()
+            if (isPracticeMode) loadQuestion() else finish()
         }, 650)
     }
 
@@ -203,6 +226,10 @@ class QuestionActivity : AppCompatActivity() {
         if (correctButtonIndex >= 0) colorOption(correctButtonIndex, true)
 
         LessonManager.onIncorrectAnswer(this, currentCategory)
+        AdaptiveQuestionManager.recordAnswer(
+            this, currentBankQuestion, false, currentCategory,
+            System.currentTimeMillis() - questionStartedAt
+        )
         ProgressManager.onIncorrect(this)
         binding.tvFeedback.text = "Revisa la explicación"
         binding.tvFeedback.setTextColor(getColor(R.color.incorrect_red))
@@ -233,17 +260,18 @@ class QuestionActivity : AppCompatActivity() {
         lesson: Int,
         userLevel: Int
     ): QuestionBank.Question? {
-        val diff = QuestionBank.difficultyForUserLevel(userLevel)
+        val diff = AdaptiveQuestionManager.difficultyFor(this, currentCategory, userLevel)
         val pools = listOf(
             QuestionBank.getQuestions(subject, lesson, diff),
             QuestionBank.getQuestions(subject, lesson, diff - 1),
+            QuestionBank.getQuestions(subject, lesson, diff + 1),
             QuestionBank.getQuestions(subject, lesson)
         )
 
         for (pool in pools) {
             if (pool.isEmpty()) continue
             val fresh = pool.filter { it.id !in recentQuestionIds }
-            return fresh.randomOrNull() ?: pool.randomOrNull()
+            return AdaptiveQuestionManager.select(this, fresh.ifEmpty { pool })
         }
         return null
     }
@@ -279,6 +307,7 @@ class QuestionActivity : AppCompatActivity() {
             append("La respuesta correcta era ${correctAnswerWithLetter()}.")
             if (why.isNotBlank()) append("\n$why")
             if (commonError.isNotBlank()) append("\nError común: $commonError")
+            if (q.remedialAction.isNotBlank()) append("\nSiguiente paso: ${q.remedialAction}")
         }
     }
 
@@ -343,6 +372,7 @@ class QuestionActivity : AppCompatActivity() {
         QuestionGenerator.Category.ENGLISH -> "Inglés"
         QuestionGenerator.Category.PYTHON -> "Python"
         QuestionGenerator.Category.CURIOSIDADES -> "Curiosidades"
+        QuestionGenerator.Category.PERIODIC_TABLE -> "Tabla periódica"
     }
 
     private fun getLessonForCategory(cat: QuestionGenerator.Category): Int {
@@ -355,12 +385,13 @@ class QuestionActivity : AppCompatActivity() {
         QuestionGenerator.Category.ENGLISH -> R.drawable.ic_cat_english
         QuestionGenerator.Category.PYTHON -> R.drawable.ic_cat_python
         QuestionGenerator.Category.CURIOSIDADES -> R.drawable.ic_cat_curiosidades
+        QuestionGenerator.Category.PERIODIC_TABLE -> R.drawable.ic_ui_book
     }
 
     override fun onPause() {
         super.onPause()
         // Si el usuario intenta escapar (recientes, home, etc.), volver al frente
-        if (MonitorService.isQuestionVisible && canStayInFront()) {
+        if (!isPracticeMode && MonitorService.isQuestionVisible && canStayInFront()) {
             val relaunch = Intent(this, QuestionActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -372,7 +403,7 @@ class QuestionActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        MonitorService.isQuestionVisible = true
+        if (!isPracticeMode) MonitorService.isQuestionVisible = true
     }
 
     private fun canStayInFront(): Boolean {
@@ -383,7 +414,7 @@ class QuestionActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        if (!isFinishing) {
+        if (!isPracticeMode && !isFinishing) {
             MonitorService.isQuestionVisible = false
         }
     }
@@ -391,6 +422,6 @@ class QuestionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         uiHandler.removeCallbacksAndMessages(null)
-        MonitorService.isQuestionVisible = false
+        if (!isPracticeMode) MonitorService.isQuestionVisible = false
     }
 }

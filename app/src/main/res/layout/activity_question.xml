@@ -63,6 +63,20 @@
 
                 </LinearLayout>
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClosePractice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="-62dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Cerrar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/card_dark"
+                    app:cornerRadius="21dp" />
+
                 <TextView
                     android:id="@+id/tvQuestion"
                     android:layout_width="match_parent"

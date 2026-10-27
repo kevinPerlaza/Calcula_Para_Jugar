@@ -155,8 +155,52 @@ object LessonManager {
             QuestionGenerator.Category.ENGLISH -> englishLessons
             QuestionGenerator.Category.PYTHON -> pythonLessons
             QuestionGenerator.Category.CURIOSIDADES -> curiosidadesLessons
+            QuestionGenerator.Category.PERIODIC_TABLE -> periodicTableLessons
         }
     }
+
+    private val periodicTableLessons = listOf(
+        LessonContent("periodic_01", "Elementos y símbolos",
+            "Cada elemento tiene un nombre y un símbolo químico universal. El símbolo comienza con mayúscula y, si tiene dos letras, la segunda va en minúscula.",
+            "H = Hidrógeno\nHe = Helio\nNa = Sodio\nFe = Hierro",
+            "¿Cuál es el símbolo del oxígeno?", listOf("O", "Ox", "Og", "Os"), "O", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_02", "Número atómico",
+            "El número atómico indica cuántos protones tiene el núcleo. Es la identidad del elemento y ordena la tabla periódica.",
+            "H = 1\nC = 6\nO = 8\nFe = 26",
+            "¿Cuál es el número atómico del carbono?", listOf("6", "8", "12", "14"), "6", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_03", "Grupos y períodos",
+            "Las columnas se llaman grupos y reúnen elementos con propiedades parecidas. Las filas se llaman períodos.",
+            "Grupo 1: alcalinos\nGrupo 17: halógenos\nGrupo 18: gases nobles",
+            "¿Cómo se llaman las filas de la tabla?", listOf("Períodos", "Grupos", "Familias", "Bloques"), "Períodos", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_04", "Metales y no metales",
+            "La mayoría de los elementos son metales. Los no metales se concentran en la zona superior derecha, con el hidrógeno como excepción.",
+            "Metal: hierro (Fe)\nNo metal: oxígeno (O)\nMetaloide: silicio (Si)",
+            "¿Cuál de estos elementos es un metal?", listOf("Hierro", "Oxígeno", "Cloro", "Neón"), "Hierro", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_05", "Metales alcalinos",
+            "Los elementos del grupo 1, excepto el hidrógeno, son metales alcalinos muy reactivos.",
+            "Li = Litio\nNa = Sodio\nK = Potasio",
+            "¿Cuál es un metal alcalino?", listOf("Sodio", "Calcio", "Aluminio", "Helio"), "Sodio", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_06", "Halógenos",
+            "Los halógenos pertenecen al grupo 17. Son no metales reactivos que suelen formar sales.",
+            "F = Flúor\nCl = Cloro\nBr = Bromo\nI = Yodo",
+            "¿Cuál es el símbolo del cloro?", listOf("Cl", "C", "Cr", "Co"), "Cl", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_07", "Gases nobles",
+            "Los gases nobles ocupan el grupo 18 y tienen muy baja reactividad química.",
+            "He = Helio\nNe = Neón\nAr = Argón",
+            "¿Cuál de estos es un gas noble?", listOf("Neón", "Nitrógeno", "Flúor", "Hidrógeno"), "Neón", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_08", "Estados de la materia",
+            "A temperatura ambiente, la mayoría de los elementos son sólidos. Algunos son gases y solo el mercurio y el bromo son líquidos.",
+            "Hg = mercurio líquido\nBr = bromo líquido\nO = oxígeno gaseoso",
+            "¿Qué elemento es líquido a temperatura ambiente?", listOf("Mercurio", "Hierro", "Carbono", "Aluminio"), "Mercurio", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_09", "Elementos de la vida",
+            "Carbono, hidrógeno, oxígeno, nitrógeno, fósforo y azufre son esenciales para los seres vivos.",
+            "C: base de moléculas orgánicas\nO: respiración\nP: ADN y energía celular",
+            "¿Qué elemento es la base de las moléculas orgánicas?", listOf("Carbono", "Neón", "Oro", "Argón"), "Carbono", QuestionGenerator.Category.PERIODIC_TABLE),
+        LessonContent("periodic_10", "Aplicaciones cotidianas",
+            "Los elementos aparecen en objetos cotidianos: cobre en cables, silicio en chips, litio en baterías y hierro en estructuras.",
+            "Cu = cables eléctricos\nSi = semiconductores\nLi = baterías",
+            "¿Qué elemento se usa ampliamente en chips?", listOf("Silicio", "Helio", "Radón", "Yodo"), "Silicio", QuestionGenerator.Category.PERIODIC_TABLE)
+    )
 
     // ══════════════════════════════════════
     // LECCIONES DE CURIOSIDADES (fallback)

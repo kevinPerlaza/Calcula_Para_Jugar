@@ -6,7 +6,7 @@ import org.json.JSONObject
 
 /**
  * Banco de preguntas cargado desde assets/questions/.
- * 800 preguntas organizadas por materia, lección y dificultad.
+ * Preguntas organizadas por materia, lección y dificultad.
  *
  * Estructura JSON por pregunta:
  * {
@@ -30,10 +30,14 @@ object QuestionBank {
         val question: String,
         val options: List<String>,
         val answer: String,
+        val topic: String,
         val explanation: String,
+        val hint: String,
         val feedbackWrong: String,
         val whyCorrect: String,
         val commonError: String,
+        val remedialAction: String,
+        val retryRule: String,
         val jumpEligible: Boolean,
         val poolJumpL1L2: Boolean,
         val poolJumpL2L3: Boolean,
@@ -55,7 +59,8 @@ object QuestionBank {
             "questions_math.json",
             "questions_english.json",
             "questions_python.json",
-            "questions_curiosidades.json"
+            "questions_curiosidades.json",
+            "questions_periodic_table.json"
         )
 
         for (file in files) {
@@ -145,10 +150,14 @@ object QuestionBank {
             question = obj.getString("question"),
             options = options,
             answer = obj.getString("answer"),
+            topic = obj.optString("topic", "Contenido general"),
             explanation = obj.optString("explanation", ""),
+            hint = obj.optString("hint", ""),
             feedbackWrong = obj.optString("feedbackWrong", ""),
             whyCorrect = obj.optString("whyCorrect", ""),
             commonError = obj.optString("commonError", ""),
+            remedialAction = obj.optString("remedialAction", ""),
+            retryRule = obj.optString("retryRule", ""),
             jumpEligible = obj.optString("jumpEligible", "No").equals("Sí", ignoreCase = true),
             poolJumpL1L2 = obj.optString("poolJumpL1L2", "No").equals("Sí", ignoreCase = true),
             poolJumpL2L3 = obj.optString("poolJumpL2L3", "No").equals("Sí", ignoreCase = true),

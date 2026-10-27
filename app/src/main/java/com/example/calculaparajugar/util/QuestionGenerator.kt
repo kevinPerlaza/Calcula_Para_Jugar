@@ -33,7 +33,8 @@ object QuestionGenerator {
         MATH("Matemáticas"),
         ENGLISH("Inglés"),
         PYTHON("Python"),
-        CURIOSIDADES("Curiosidades")
+        CURIOSIDADES("Curiosidades"),
+        PERIODIC_TABLE("Tabla periódica")
     }
 
     enum class Difficulty { EASY, MEDIUM, HARD }
@@ -46,6 +47,7 @@ object QuestionGenerator {
         Category.ENGLISH -> generateEnglish()
         Category.PYTHON -> generatePython()
         Category.CURIOSIDADES -> generateMath() // Fallback; real questions come from QuestionBank
+        Category.PERIODIC_TABLE -> generateMath() // Fallback; real questions come from QuestionBank
     }
 
     // ══════════════════════════════════════

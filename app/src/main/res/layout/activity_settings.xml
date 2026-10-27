@@ -189,7 +189,7 @@
                         android:id="@+id/tvOverlayStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Superposición pendiente"
+                        android:text="Superposición pendiente · permite mostrar la pregunta sobre la app elegida"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:padding="4dp" />
@@ -198,7 +198,7 @@
                         android:id="@+id/btnGrantOverlay"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
-                        android:text="Conceder"
+                        android:text="Conceder superposición"
                         android:textSize="11sp"
                         android:textColor="@color/primary"
                         android:background="@drawable/bg_glass_button_secondary"
@@ -209,7 +209,7 @@
                         android:id="@+id/tvUsageStatsStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Estadísticas de uso pendientes"
+                        android:text="Estadísticas de uso pendientes · detecta localmente qué aplicación está visible"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:padding="4dp"
@@ -219,13 +219,115 @@
                         android:id="@+id/btnGrantUsageStats"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
-                        android:text="Conceder"
+                        android:text="Conceder acceso de uso"
                         android:textSize="11sp"
                         android:textColor="@color/primary"
                         android:background="@drawable/bg_glass_button_secondary"
                         app:backgroundTint="@null"
                         app:cornerRadius="8dp" />
 
+                    <TextView
+                        android:id="@+id/tvNotificationsStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:padding="4dp"
+                        android:text="Notificaciones pendientes · mantiene visible el servicio de protección"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGrantNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_glass_button_secondary"
+                        android:text="Conceder notificaciones"
+                        android:textColor="@color/primary"
+                        android:textSize="11sp"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvBatteryStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:padding="4dp"
+                        android:text="Revisa el ahorro de batería para evitar cierres del servicio"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBatterySettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_glass_button_secondary"
+                        android:text="Abrir ajustes de batería"
+                        android:textColor="@color/primary"
+                        android:textSize="11sp"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="8dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Respaldo del progreso"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Guarda o recupera niveles, racha, categorías, aplicaciones y repaso adaptativo. El PIN no se exporta."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExportBackup"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_glass_button_secondary"
+                        android:text="Guardar respaldo"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary"
+                        android:textSize="12sp"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="10dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnImportBackup"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_glass_button_secondary"
+                        android:text="Restaurar respaldo"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary"
+                        android:textSize="12sp"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="10dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

@@ -26,6 +26,7 @@ import com.example.calculaparajugar.ui.LessonActivity
 import com.example.calculaparajugar.ui.MainActivity
 import com.example.calculaparajugar.ui.QuestionActivity
 import com.example.calculaparajugar.util.AppConfig
+import com.example.calculaparajugar.util.AdaptiveQuestionManager
 import com.example.calculaparajugar.util.LessonManager
 
 /**
@@ -61,6 +62,7 @@ class MonitorService : Service() {
         private const val NOTIFICATION_ID = 1
         private const val POLL_INTERVAL_MS = 2000L
         private const val ALARM_REQUEST_CODE = 9999
+        private const val ENTRY_GRACE_MS = 15_000L
 
         const val ACTION_PERIODIC_TRIGGER = "ACTION_PERIODIC_TRIGGER"
 
@@ -84,6 +86,8 @@ class MonitorService : Service() {
     private var hasObservedDeviceState = false
     private var deviceWasReady = false
     private var deferChallengesUntil = 0L
+    private var entryGraceUntil = 0L
+    private var challengeShownForCurrentApp = false
 
     override fun onCreate() {
         super.onCreate()
@@ -118,7 +122,29 @@ class MonitorService : Service() {
         handler.removeCallbacks(pollRunnable)
         runCatching { unregisterReceiver(screenStateReceiver) }
         cancelAlarm()
+        scheduleServiceRestartIfNeeded()
         Log.d(TAG, "=== Servicio DESTRUIDO ===")
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        scheduleServiceRestartIfNeeded()
+    }
+
+    private fun scheduleServiceRestartIfNeeded() {
+        if (AppConfig.isProtectionEnabled(this)) {
+            val restartIntent = Intent(this, MonitorService::class.java)
+            val pending = PendingIntent.getService(
+                this, 7001, restartIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            alarmManager.setAndAllowWhileIdle(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + 5_000L,
+                pending
+            )
+        }
     }
 
     // ═══════════════════════════════════════════
@@ -140,6 +166,12 @@ class MonitorService : Service() {
     }
 
     private fun pollCheck() {
+        if (AppConfig.isPaused(this)) {
+            trackedBlockedApp = null
+            challengeShownForCurrentApp = false
+            cancelAlarm()
+            return
+        }
         val deviceReady = canShowChallengeNow()
         if (!hasObservedDeviceState) {
             hasObservedDeviceState = true
@@ -175,21 +207,30 @@ class MonitorService : Service() {
             if (foreground != trackedBlockedApp) {
                 // Entró a una nueva app bloqueada
                 trackedBlockedApp = foreground
+                challengeShownForCurrentApp = false
+                entryGraceUntil = SystemClock.elapsedRealtime() + ENTRY_GRACE_MS
                 if (SystemClock.elapsedRealtime() < deferChallengesUntil) {
                     Log.d(TAG, "App monitoreada restaurada tras desbloqueo; reiniciando intervalo")
                     scheduleNextAlarm()
                     return
                 }
 
-                Log.d(TAG, "▶▶▶ NUEVA app bloqueada: $foreground — Mostrando pregunta y programando alarma")
+                Log.d(TAG, "Nueva app monitoreada: $foreground — aplicando período de gracia")
+                return
+            }
+
+            if (!challengeShownForCurrentApp && SystemClock.elapsedRealtime() >= entryGraceUntil) {
+                Log.d(TAG, "Período de gracia finalizado: mostrando pregunta")
                 showQuestion(foreground)
                 scheduleNextAlarm()
+                challengeShownForCurrentApp = true
             }
             // Si ya es la misma app tracked, la alarma se encarga del periódico
         } else {
             if (trackedBlockedApp != null) {
                 Log.d(TAG, "◀◀◀ Salió de app bloqueada. Ahora: $foreground")
                 trackedBlockedApp = null
+                challengeShownForCurrentApp = false
                 cancelAlarm()
             }
         }
@@ -250,6 +291,10 @@ class MonitorService : Service() {
     }
 
     private fun handlePeriodicTrigger() {
+        if (AppConfig.isPaused(this)) {
+            cancelAlarm()
+            return
+        }
         if (!canShowChallengeNow()) {
             Log.d(TAG, "Alarma pospuesta: pantalla apagada o dispositivo bloqueado")
             scheduleNextAlarm()
@@ -330,7 +375,7 @@ class MonitorService : Service() {
 
         // Decidir si mostrar LECCIÓN o PREGUNTA basado en el estado del LessonManager
         val categories = AppConfig.getEnabledCategories(this)
-        val category = categories.random()
+        val category = AdaptiveQuestionManager.selectCategory(this, categories)
         val mode = LessonManager.getNextShowMode(this, category)
 
         val intent = if (mode == LessonManager.ShowMode.LESSON) {
